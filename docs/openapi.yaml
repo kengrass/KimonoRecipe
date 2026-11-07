@@ -3,13 +3,16 @@ info:
   title: KimonoRecipe Read API
   version: "1.0.0"
   description: |
-    きものレシピ Next UI が期待する **読み取り GET** 契約（機械可読版・昇格途上）。
+    きものレシピ Next UI が期待する **読み取り GET** 契約（機械可読版・副本）。
 
-    - **一覧の正（人が読む）:** `API_CATALOG.md` / `API_CONTRACT.md`
-    - **書き込み・認証の手続き見本:** `spike/docs/API.md`
-    - **見本 JSON:** `frontend/src/mocks/api/`
-    - **渡すセット:** `docs/HANDOFF.md` ・ 新DB: `docs/NEW_DB.md`
-    - 本ファイルは読み取り中心の副本。admin／ads／usage／書き込みの正は API_CATALOG.md と spike/docs/API.md。
+    **文書の正（確定・1ファイル統合しない）:**
+    - 一覧: `API_CATALOG.md`
+    - フィールド: `API_CONTRACT.md`
+    - 書き込み・認証の手続き: `spike/docs/API.md`
+    - 本ファイル: 読み取り GET の副本。矛盾時は上記 Markdown／spike を優先
+
+    **意図的に未収載:** auth／書き込み CRUD／画像／toggle／admin／ads／usage。  
+    見本 JSON: `frontend/src/mocks/api/` ・ 渡すセット: `docs/HANDOFF.md` ・ 新DB: `docs/NEW_DB.md`
 
     三つの口は混ぜない: `/api/public` ・ `/api/owner` ・ `/api/me`。
   contact:
@@ -183,6 +186,25 @@ paths:
         "404":
           description: ユーザーが無い
 
+  /api/public/users/pickup:
+    get:
+      tags: [public]
+      summary: 自動 Pick up ユーザー
+      operationId: listPickupUsers
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            default: 12
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUserListResponse"
+
   /api/owner/coordinates:
     get:
       tags: [owner]
@@ -302,6 +324,25 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MeListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/me/following:
+    get:
+      tags: [me]
+      summary: フォロー中ユーザー一覧
+      operationId: listMeFollowingUsers
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUserListResponse"
         "401":
           $ref: "#/components/responses/Unauthorized"
 

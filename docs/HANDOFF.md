@@ -15,6 +15,7 @@
 - spike は動く証明（任意・本番ではない）  
 - 移行は **ユーザー単位＋大口案 B**（正は [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md)）  
 - モック画像 URL は現行 CDN 残し（確定）。正式棚の体制・時期は後回し（[`FORMAL_SHELF_STARTER.md`](./FORMAL_SHELF_STARTER.md)）  
+- API 文書の正: 一覧=`API_CATALOG`／フィールド=`API_CONTRACT`／手続き=`spike/docs/API.md`／OpenAPI=読み取り副本  
 
 ---
 

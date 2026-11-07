@@ -39,11 +39,16 @@
 | `/api/owner/...` | 所有者のみ。マイページ一覧・**本人用詳細フル** |
 | `/api/me/...` | ログイン本人のいいね／フォロー投稿 |
 
-一覧の正: [`docs/API_CATALOG.md`](./docs/API_CATALOG.md)  
-フィールド: [`docs/API_CONTRACT.md`](./docs/API_CONTRACT.md)  
-手続き見本: [`spike/docs/API.md`](./spike/docs/API.md)  
+### API 文書の正（1ファイル統合ではない）
+
+| 役割 | 正 |
+|------|-----|
+| エンドポイント一覧 | [`docs/API_CATALOG.md`](./docs/API_CATALOG.md) |
+| フィールド・必須／任意 | [`docs/API_CONTRACT.md`](./docs/API_CONTRACT.md) |
+| 書き込み・認証の手続き | [`spike/docs/API.md`](./spike/docs/API.md) |
+| OpenAPI | [`docs/openapi.yaml`](./docs/openapi.yaml)（**読み取り副本**。admin／ads／書き込みは未収載でよい） |
+
 新DB: [`docs/NEW_DB.md`](./docs/NEW_DB.md)  
-OpenAPI: [`docs/openapi.yaml`](./docs/openapi.yaml)  
 並走・セキュリティ・SEO: [`docs/OPS_SECURITY.md`](./docs/OPS_SECURITY.md)  
 検索の件数増: [`docs/SEARCH_SCALE.md`](./docs/SEARCH_SCALE.md)
 

@@ -1,9 +1,22 @@
 # API 一覧（リニューアルの正）
 
-このリニューアルの肝は **新DB＋API を用意し、Next UI が「絞って持ってきた JSON」だけで画面を組む**こと。  
-本ファイルが **エンドポイントの一覧の正**。書き込みの手続き見本は [`../spike/docs/API.md`](../spike/docs/API.md)。
+このリニューアルの肝は **新DB＋API を用意し、Next UI が「絞って持ってきた JSON」だけで画面を組む**こと。
 
-フィールド詳細: [`API_CONTRACT.md`](./API_CONTRACT.md) ・ 一覧方針: [`LIST_QUERY_ARCHITECTURE.md`](./LIST_QUERY_ARCHITECTURE.md)  
+## 文書の正（確定）
+
+1ファイルに統合しない。役割を分ける。
+
+| 役割 | 正 | 備考 |
+|------|-----|------|
+| **エンドポイント一覧** | **本ファイル** | 人が読む一覧の正 |
+| フィールド・必須／任意 | [`API_CONTRACT.md`](./API_CONTRACT.md) | |
+| 書き込み・認証の手続き | [`../spike/docs/API.md`](../spike/docs/API.md) | 見本実装と一体 |
+| OpenAPI | [`openapi.yaml`](./openapi.yaml) | 読み取り GET の副本。ズレたら **本ファイル／CONTRACT／spike API.md を優先** |
+
+OpenAPI に **意図的に載せない**もの（正は本ファイル＋spike）:  
+`auth`／書き込み CRUD／画像／toggle／admin／ads／usage など。
+
+一覧方針: [`LIST_QUERY_ARCHITECTURE.md`](./LIST_QUERY_ARCHITECTURE.md)  
 **入口:** [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) ・ [`NEW_DB.md`](./NEW_DB.md)
 
 | 見るもの | パス |
@@ -12,7 +25,7 @@
 | **手続き見本（読み書き）** | [`../spike/docs/API.md`](../spike/docs/API.md) |
 | **この一覧** | `docs/API_CATALOG.md`（本ファイル） |
 | フィールド契約 | [`API_CONTRACT.md`](./API_CONTRACT.md) |
-| **OpenAPI（読み取り中心）** | [`openapi.yaml`](./openapi.yaml) |
+| **OpenAPI（読み取り副本）** | [`openapi.yaml`](./openapi.yaml) |
 | 書き込み現状 | [`WRITE_PATH.md`](./WRITE_PATH.md) |
 | フロント呼び出し | `frontend/src/lib/api.ts` ・ `spike-write.ts` 等 |
 | 擬似 JSON | `frontend/src/mocks/api/` |

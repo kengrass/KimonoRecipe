@@ -3,11 +3,12 @@
 フロント／spike が期待する API の形です。  
 実装時のフィールド名は相談可ですが、**公開／所有者の分離**と下の必須／任意は維持してください。
 
-作業の正は [`NEW_DB.md`](./NEW_DB.md) と [`../spike/docs/API.md`](../spike/docs/API.md)。
+作業の正は [`NEW_DB.md`](./NEW_DB.md) と [`../spike/docs/API.md`](../spike/docs/API.md)。  
+本ファイルは **フィールド契約の正**（一覧は [`API_CATALOG.md`](./API_CATALOG.md)、手続きは spike）。
 
 **エンジニア向け入口** → [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) ・ [`NEW_DB.md`](./NEW_DB.md) ・ [`API_FOR_ENGINEERS.md`](./API_FOR_ENGINEERS.md)  
 **エンドポイント一覧** → [`API_CATALOG.md`](./API_CATALOG.md)  
-**OpenAPI（読み取り中心）** → [`openapi.yaml`](./openapi.yaml)  
+**OpenAPI（読み取り副本）** → [`openapi.yaml`](./openapi.yaml)  
 **一覧・検索・マイページの共通方針** → [`LIST_QUERY_ARCHITECTURE.md`](./LIST_QUERY_ARCHITECTURE.md)  
 **渡すセット** → [`HANDOFF.md`](./HANDOFF.md)
 

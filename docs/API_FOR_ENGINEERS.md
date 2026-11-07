@@ -236,7 +236,7 @@ A. 意図は [`NEW_DB.md`](./NEW_DB.md)。受け渡し形は [`MIGRATION_INTAKE.
 A. **だめではない。** 形が合えばよい。
 
 **Q. OpenAPI と Markdown どっちが正？**  
-A. 人が読む正は **CATALOG / CONTRACT**。書き込み手続きは **spike/docs/API.md**。OpenAPI は読み取り中心の副本。
+A. **1ファイルに統合しない。** 一覧=`API_CATALOG`、フィールド=`API_CONTRACT`、書き込み手続き=`spike/docs/API.md`。OpenAPI は読み取り GET の副本（矛盾時は Markdown／spike 優先）。
 
 **Q. いいね／フォロー POST は不要？**  
 A. **不要ではない。** 一覧 GET と toggle の見本は spike にある。正式棚は同じ手続きで実装する。

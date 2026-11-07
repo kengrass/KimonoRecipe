@@ -55,7 +55,7 @@ Myフォルダ／Myカテゴリは **新系に含めない**。
 | — | 読み取り UI・手続き見本・新DBドラフト | **済〜進行** |
 | — | spike で一周検証 | **進行中** |
 | P1 | 本資料・提供モデルの維持 | 進行中 |
-| P2 | OpenAPI へ書き込み／管理口を昇格（副本） | 後続（正は CATALOG / spike API.md） |
+| P2 | OpenAPI へ書き込み／管理口を昇格 | **後続可**。一覧正は CATALOG、手続きは spike API.md、OpenAPI は読み取り副本（階層確定済み） |
 | P3 | `/admin` アラート実装 | **引き渡し外**（[`ADMIN_ALERTS.md`](./ADMIN_ALERTS.md)） |
 
 ### B. エンジニア側
