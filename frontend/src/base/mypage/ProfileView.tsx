@@ -340,30 +340,10 @@ export function ProfileView({ user: _user, viewerUserId: _viewer, payload }: Pro
               }))}
             />
 
-            {profile.isOwnerView ? (
-              <FilterChips
-                allHref={href({ status: "all" })}
-                activeId={state.status === "all" ? undefined : state.status}
-                items={[
-                  {
-                    id: "public",
-                    label: "公開",
-                    href: href({ status: "public" }),
-                  },
-                  {
-                    id: "private",
-                    label: "非公開",
-                    href: href({ status: "private" }),
-                  },
-                ]}
-              />
-            ) : null}
-
             <div className="mb-3 flex flex-wrap items-center gap-3">
               {state.q ||
               state.season !== "all" ||
-              state.coordinateView !== "season" ||
-              state.status !== "all" ? (
+              state.coordinateView !== "season" ? (
                 <p className="text-sm text-kr-muted">
                   {coordinateTotal}件
                   {state.q ? `（「${state.q}」）` : ""}
@@ -462,25 +442,6 @@ export function ProfileView({ user: _user, viewerUserId: _viewer, payload }: Pro
                   : undefined
               }
             />
-            {profile.isOwnerView ? (
-              <FilterChips
-                allHref={href({ status: "all" })}
-                activeId={state.status === "all" ? undefined : state.status}
-                items={[
-                  {
-                    id: "public",
-                    label: "公開",
-                    href: href({ status: "public" }),
-                  },
-                  {
-                    id: "private",
-                    label: "非公開",
-                    href: href({ status: "private" }),
-                  },
-                ]}
-              />
-            ) : null}
-
             <div className="mb-3 flex flex-wrap items-center gap-3">
               {state.q || state.category ? (
                 <p className="text-sm text-kr-muted">

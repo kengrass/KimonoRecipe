@@ -221,14 +221,14 @@ export const USAGE_INSIGHT: UsageInsight = {
     { pathLabel: "プロフィール", pv: 400, memberShare: 0.45 },
   ],
   topCoordinates: [
-    { id: "c1", kind: "coordinate", title: "秋の色無地コーデ", pv: 312 },
-    { id: "c2", kind: "coordinate", title: "浴衣シンプル", pv: 278 },
-    { id: "c3", kind: "coordinate", title: "訪問着＋袋帯", pv: 241 },
+    { id: "c1", kind: "coordinate", title: "モックコーデ", pv: 312 },
+    { id: "c2", kind: "coordinate", title: "モックコーデ", pv: 278 },
+    { id: "c3", kind: "coordinate", title: "モックコーデ", pv: 241 },
   ],
   topItems: [
-    { id: "i1", kind: "item", title: "塩瀬名古屋帯", pv: 198 },
-    { id: "i2", kind: "item", title: "木綿着物（紺）", pv: 176 },
-    { id: "i3", kind: "item", title: "草履（黒）", pv: 154 },
+    { id: "i1", kind: "item", title: "モックアイテム", pv: 198 },
+    { id: "i2", kind: "item", title: "モックアイテム", pv: 176 },
+    { id: "i3", kind: "item", title: "モックアイテム", pv: 154 },
   ],
   searches: [
     { query: "浴衣", count: 86, zeroHit: false },

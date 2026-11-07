@@ -61,8 +61,7 @@ const TAG_CATEGORY_ALIASES: Record<string, SearchCategory> = {
   帯揚げ: "帯揚",
   小物: "アクセサリー",
   着物: "袷",
-  男の着物: "袷",
-  ルミロック: "袷",
+  モック: "袷",
 };
 
 function inferGender(item: PublicListItem): Exclude<SearchGender, "all"> {
@@ -70,7 +69,7 @@ function inferGender(item: PublicListItem): Exclude<SearchGender, "all"> {
   const text = [item.title, ...item.tags, item.user.name].join(" ");
   if (/男|mens|MEN/i.test(text)) return "men";
   if (/子供|キッズ|KIDS|kids/i.test(text)) return "kids";
-  if (item.user.id === "FL6QQa" || item.user.id === "dU9xEE") return "men";
+  if (item.user.id === "mckDemo" || item.user.id === "mckBrandA") return "men";
   return "women";
 }
 

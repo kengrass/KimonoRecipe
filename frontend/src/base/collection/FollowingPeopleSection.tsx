@@ -128,7 +128,7 @@ export function FollowingPeopleSection({
       setFollowing(initialFollowing ?? []);
       return;
     }
-    // spike 時はサーバ渡した一覧を正にする（モック ID の Teteko 等で上書きしない）
+    // spike 時はサーバ渡した一覧を正にする（モック ID で上書きしない）
     if (USE_SPIKE_API) {
       setFollowing(initialFollowing ?? []);
       return;

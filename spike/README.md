@@ -34,9 +34,8 @@ npm run dev
 ```
 
 - Health: http://127.0.0.1:4010/health  
-- デモユーザー: `demo@example.com` / `demo-pass`（起動時シード）
-- 実コンテンツ一部取り込み（公開プロフィール）: `npm run db:seed-real`  
-  → other=`teteko`、demo=`FL6QQa` の公開コーデ／紐付けアイテムを各数件
+- デモユーザー: `demo@example.com` / `demo-pass`（起動時シード。管理者はこのアカウントのみ）
+- 本番公開プロフィールの取り込み（`db:seed-real`）は廃止（実在データ混入防止）
 - 公開検索は件数増向け索引＋コーデ `cat`＝紐付き公開アイテム起点（方針の正はリポ `docs/SEARCH_SCALE.md`）
 
 ## 進捗（spike 一周）

@@ -52,7 +52,7 @@
 - 所有者判定はサーバー側（クライアントの隠し表示に頼らない）
 - 認証は既存セッション／Cookie（同一ドメイン前提）
 - 一覧・詳細とも JSON。例は `data` 配列ラッパー（配列直返しも可・要相談）
-- `profile_url` / `detail_url` は**相対パス推奨**（例: `/m/FL6QQa`, `/c/FgNzIyU`）
+- `profile_url` / `detail_url` は**相対パス推奨**（例: `/m/mckDemo`, `/c/mckX046`）
 
 見本JSON: `frontend/src/mocks/api/`（パス＝本番API）
 
@@ -77,8 +77,8 @@
 | `user` | 投稿者ユーザー ID | **他人プロフィール一覧**。公開のみ。未指定＝全体 |
 
 ```
-GET /api/public/coordinates?user=FL6QQa&page=1
-GET /api/public/items?user=FL6QQa&page=1
+GET /api/public/coordinates?user=mckDemo&page=1
+GET /api/public/items?user=mckDemo&page=1
 ```
 
 フロント: `getPublicProfileListPage`。手続き見本: [`../spike/docs/API.md`](../spike/docs/API.md)。
@@ -91,18 +91,18 @@ GET /api/public/items?user=FL6QQa&page=1
 {
   "data": [
     {
-      "id": "FgNzIyU",
-      "title": "ルミロックコーデ",
+      "id": "mckX046",
+      "title": "モックコーデ",
       "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/d67111f9bd916c91cc0263abf6245bd9b91c32c0.jpg?20211113181453",
       "user": {
-        "id": "FL6QQa",
-        "name": "Kensuke",
-        "profile_url": "/m/FL6QQa"
+        "id": "mckDemo",
+        "name": "デモ花子",
+        "profile_url": "/m/mckDemo"
       },
       "posted_at": "2016-04-29T15:45:00+09:00",
-      "tags": ["ルミロック", "男の着物"],
+      "tags": ["モック", "男の着物"],
       "seasons": ["秋"],
-      "detail_url": "/c/FgNzIyU",
+      "detail_url": "/c/mckX046",
       "gender": "men",
       "obi_knot": "貝の口"
     }
@@ -132,18 +132,18 @@ GET /api/public/items?user=FL6QQa&page=1
 {
   "data": [
     {
-      "id": "ISSIeSA",
-      "title": "シルクウール着物 横段ブルーグレー",
+      "id": "mckX070",
+      "title": "モック単衣",
       "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/ebba13f09fcba93f0ec2813a1e139a51d50c3562.jpeg?20211113171938",
       "user": {
-        "id": "FL6QQa",
-        "name": "Kensuke",
-        "profile_url": "/m/FL6QQa"
+        "id": "mckDemo",
+        "name": "デモ花子",
+        "profile_url": "/m/mckDemo"
       },
       "posted_at": "2016-04-29T16:04:00+09:00",
       "tags": [],
       "seasons": ["冬"],
-      "detail_url": "/i/ISSIeSA",
+      "detail_url": "/i/mckX070",
       "gender": "men",
       "category": "単衣"
     }
@@ -222,21 +222,21 @@ GET /api/public/items?user=FL6QQa&page=1
 
 ```json
 {
-  "id": "FgNzIyU",
-  "title": "ルミロックコーデ",
+  "id": "mckX046",
+  "title": "モックコーデ",
   "description": "赤レンガの今昔きもの市へ",
   "images": ["https://…"],
-  "user": { "id": "FL6QQa", "name": "Kensuke", "profile_url": "/m/FL6QQa" },
+  "user": { "id": "mckDemo", "name": "デモ花子", "profile_url": "/m/mckDemo" },
   "posted_at": "2016-04-29T15:45:00+09:00",
-  "tags": ["ルミロック"],
+  "tags": ["モック"],
   "like_count": 3,
   "gender": "men",
   "obi_knot": "貝の口",
   "items": [],
   "related_coordinates": [],
   "og": { "title": "…", "description": "…", "image_url": "…" },
-  "edit_url": "/compose/coordinate?id=FgNzIyU",
-  "add_coordinate_item_url": "/compose/coordinate?id=FgNzIyU",
+  "edit_url": "/compose/coordinate?id=mckX046",
+  "add_coordinate_item_url": "/compose/coordinate?id=mckX046",
   "private_note": "非公開メモ本文",
   "owner_status": "private",
   "updated_at": "2021-11-13T18:14:53+09:00",
@@ -266,8 +266,8 @@ GET /api/public/items?user=FL6QQa&page=1
 
 ```json
 {
-  "edit_url": "/compose/item?id=ISSIeSA",
-  "add_used_coordinate_url": "/compose/item?id=ISSIeSA",
+  "edit_url": "/compose/item?id=mckX070",
+  "add_used_coordinate_url": "/compose/item?id=mckX070",
   "private_note": "非公開メモ本文",
   "owner_status": "public",
   "updated_at": "2021-11-13T17:19:38+09:00",
@@ -310,7 +310,7 @@ GET /api/public/items?user=FL6QQa&page=1
     "item_count": 20,
     "declutter_count": 2
   },
-  "visibility_by_id": { "FgNzIyU": "public", "xxxx": "private" }
+  "visibility_by_id": { "mckX046": "public", "xxxx": "private" }
 }
 ```
 
@@ -337,9 +337,9 @@ GET /api/public/items?user=FL6QQa&page=1
 {
   "data": [
     {
-      "id": "FL6QQa",
-      "name": "Kensuke",
-      "profile_url": "/m/FL6QQa",
+      "id": "mckDemo",
+      "name": "デモ花子",
+      "profile_url": "/m/mckDemo",
       "avatar_url": null,
       "bio": "きものレシピの企画から運営までを行なっています。"
     }
@@ -373,9 +373,9 @@ GET /api/public/items?user=FL6QQa&page=1
 
 ```json
 {
-  "id": "FL6QQa",
-  "name": "Kensuke",
-  "profile_url": "/m/FL6QQa",
+  "id": "mckDemo",
+  "name": "デモ花子",
+  "profile_url": "/m/mckDemo",
   "avatar_url": null,
   "bio": "きものレシピの企画から運営までを行なっています。",
   "profile_links": [{ "label": "👘とは？", "href": "https://www.kimonorecipe.com/about.html" }],
@@ -392,7 +392,7 @@ GET /api/public/items?user=FL6QQa&page=1
 | profile_links / sns | | 公開リンクのみ |
 | public_size | | 公開してよいサイズのみ（身長・身丈など） |
 
-見本: `frontend/src/mocks/api/public/users/FL6QQa.json`  
+見本: `frontend/src/mocks/api/public/users/mckDemo.json`  
 フロント: `getPublicUser` ← `/m/[id]`
 
 投稿数などは一覧の `include_facets` で足りる。設定画面専用の項目は載せない（[`WRITE_PATH.md`](./WRITE_PATH.md)）。

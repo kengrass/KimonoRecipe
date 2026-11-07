@@ -19,11 +19,11 @@
  * 旧キー（t/v/s/f/c/cm/p/o）は読み取り互換のみ。新規生成はしない。
  *
  * 例:
- *   /m/FL6QQa
- *   /m/FL6QQa?m=i
- *   /m/FL6QQa?m=i&page=2&cat=袷
- *   /m/FL6QQa?season=春
- *   /m/FL6QQa?my_folder=favorite
+ *   /m/mckDemo
+ *   /m/mckDemo?m=i
+ *   /m/mckDemo?m=i&page=2&cat=袷
+ *   /m/mckDemo?season=春
+ *   /m/mckDemo?my_folder=favorite
  */
 import { contentKindFromShort, contentKindToShort } from "./content-kind";
 import { parsePositivePage } from "./pagination";

@@ -130,12 +130,12 @@ NEXT_PUBLIC_API_BASE_URL=https://（正式APIのオリジン）
 frontend/src/mocks/api/
   public/coordinates/list.json     ← GET /api/public/coordinates の見本
   public/items/list.json
-  public/coordinates/FgNzIyU.json  ← GET /api/public/coordinates/{id}
-  public/items/ISSIeSA.json
-  public/users/FL6QQa.json
+  public/coordinates/mckX046.json  ← GET /api/public/coordinates/{id}
+  public/items/mckX070.json
+  public/users/mckDemo.json
   public/users/list.json           ← GET /api/public/users（検索）
-  owner/coordinates/FgNzIyU.json   ← owner 詳細の所有者キー見本
-  owner/items/ISSIeSA.json
+  owner/coordinates/mckX046.json   ← owner 詳細の所有者キー見本
+  owner/items/mckX070.json
 ```
 
 パス階層 ≈ 本番 API パス。  

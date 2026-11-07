@@ -52,9 +52,9 @@
 | 用途 | パス |
 |------|------|
 | 公開一覧 | `mocks/api/public/coordinates/list.json` ・ `items/list.json` |
-| 公開詳細 | `mocks/api/public/coordinates/FgNzIyU.json` ・ `items/ISSIeSA.json` |
+| 公開詳細 | `mocks/api/public/coordinates/mckX046.json` ・ `items/mckX070.json` |
 | owner 詳細 | `mocks/api/owner/...` |
-| 公開プロフィール | `mocks/api/public/users/FL6QQa.json` |
+| 公開プロフィール | `mocks/api/public/users/mckDemo.json` |
 | 公開ユーザー検索 | `mocks/api/public/users/list.json` |
 
 詳細マップ: [`frontend/src/mocks/api/README.md`](../frontend/src/mocks/api/README.md)

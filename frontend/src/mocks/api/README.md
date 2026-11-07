@@ -26,7 +26,7 @@ Next `/` は上記 `list.json`（先頭セット）。`/search` はモック時�
 | `GET /api/owner/coordinates/{id}` | `owner/coordinates/{id}.json` |
 | `GET /api/owner/items/{id}` | `owner/items/{id}.json` |
 
-本命見本: コーデ `FgNzIyU` ・ アイテム `ISSIeSA`。  
+本命見本: コーデ `mckX046` ・ アイテム `mckX070`。  
 フィールド: [`docs/API_CONTRACT.md`](../../../../docs/API_CONTRACT.md)。  
 手続きの動く見本: [`spike/docs/API.md`](../../../../spike/docs/API.md)。
 

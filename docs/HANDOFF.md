@@ -13,7 +13,8 @@
 
 - 新UI／API／新DBを本番の正にする  
 - spike は動く証明（任意・本番ではない）  
-- AWS の置き方・移行範囲はエンジニアと協議  
+- 移行は **ユーザー単位＋大口案 B**（正は [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md)）  
+- AWS の置き方・時期はエンジニアと協議  
 
 ---
 

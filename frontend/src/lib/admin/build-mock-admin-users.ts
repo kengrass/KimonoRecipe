@@ -1,6 +1,6 @@
 /**
  * モック時の管理ユーザー。
- * spike シードと同じ「デモ2人」に揃える（デモ花子 / Other）。
+ * spike シード相当のデモユーザー（mckDemo=デモ花子、mckMidori=デモみどり）。
  * 投稿件数は各 ID のモックカタログ集計。
  */
 
@@ -36,22 +36,22 @@ const DEMO_ACCOUNTS: Array<{
   mailRejected?: boolean;
 }> = [
   {
-    id: "FL6QQa",
+    id: "mckDemo",
     name: "デモ花子",
     email: "demo@example.com",
     adminNote: "spike demo@example.com 相当",
     registeredAt: "2018-04-01T10:00:00+09:00",
     lastActiveAt: hoursAgo(2),
-    premiumId: "P-FL6QQa",
+    premiumId: "P-mckDemo",
   },
   {
-    id: "6ohruL",
-    name: "デモ次郎",
-    email: "other@example.com",
-    adminNote: "spike other@example.com 相当（非管理者）",
+    id: "mckMidori",
+    name: "デモみどり",
+    email: "midori@example.com",
+    adminNote: "架空の別投稿者（非管理者）",
     registeredAt: "2019-11-02T14:00:00+09:00",
     lastActiveAt: daysAgo(3),
-    premiumId: "P-6ohruL",
+    premiumId: "P-mckMidori",
     mailRejected: true,
   },
 ];

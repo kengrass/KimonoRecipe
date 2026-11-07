@@ -1,0 +1,200 @@
+{
+  "id": "mckX068",
+  "title": "モックコーデ",
+  "description": "モック用の説明です。",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/802b03230ba8cc6a6517d3edd9d769bf1e1303c0.JPG?20260929231129"
+  ],
+  "user": {
+    "id": "mckMidori",
+    "name": "デモみどり",
+    "profile_url": "/m/mckMidori"
+  },
+  "posted_at": "2026-09-29T23:11:00+09:00",
+  "tags": [
+    "モック"
+  ],
+  "like_count": 0,
+  "gender": "women",
+  "obi_knot": "創作帯結び",
+  "items": [
+    {
+      "id": "mckX086",
+      "title": "モックアイテム",
+      "category": "単衣",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/542327ad1040364a880bc74ce47bdd8d1a2ebc38.jpg?20220907001933",
+      "detail_url": "/i/mckX086"
+    },
+    {
+      "id": "mckX016",
+      "title": "モックアイテム",
+      "category": "半幅帯",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/b34ed110dbb9b725e1ccd7f3ab278fd809e1d463.jpg?20211113195251",
+      "detail_url": "/i/mckX016"
+    },
+    {
+      "id": "mckX187",
+      "title": "モックアイテム",
+      "category": "帯締",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/f3df9468be23ea2c36025c7df97fc32cfd562e0b.jpg?20250714085304",
+      "detail_url": "/i/mckX187"
+    },
+    {
+      "id": "mckX092",
+      "title": "モックアイテム",
+      "category": "羽織",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/f0396a9150ef72b30a5c8f2be27927d27dd36a46.jpg?20250312214255",
+      "detail_url": "/i/mckX092"
+    },
+    {
+      "id": "mckX027",
+      "title": "モックアイテム",
+      "category": "羽織紐",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/1410c76290265d797377a460c51363c23ad56202.jpg?20250506163803",
+      "detail_url": "/i/mckX027"
+    },
+    {
+      "id": "mckX147",
+      "title": "モックアイテム",
+      "category": "半襟",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/95979404661ed1f0e90d79933e762ede0bc77575.jpg?20211113192654",
+      "detail_url": "/i/mckX147"
+    },
+    {
+      "id": "mckX164",
+      "title": "モックアイテム",
+      "category": "足袋",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/af40868903cb404daf6ed61502afb05dfe70de0a.jpg?20240405140537",
+      "detail_url": "/i/mckX164"
+    },
+    {
+      "id": "mckX032",
+      "title": "モックアイテム",
+      "category": "履物",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/caf99595ceff805d7463dbd3e34a343652d30fa0.jpg?20211113191258",
+      "detail_url": "/i/mckX032"
+    },
+    {
+      "id": "mckX009",
+      "title": "モックアイテム",
+      "category": "バッグ",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/fd414d0c89d4c160a28a39729b347709440d73d2.jpg?20211113211123",
+      "detail_url": "/i/mckX009"
+    }
+  ],
+  "related_coordinates": [
+    {
+      "id": "mckX128",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/465b51019183a065d9b4e11b3e4986ffcf640a2d.JPG?20230308062835",
+      "detail_url": "/c/mckX128",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX165",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/d12eed8f7d012036c1d6da62bbc39c0fae951060.JPG?20211125221308",
+      "detail_url": "/c/mckX165",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX174",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/ed5f827e617f835d68624dcdde1d7a62f4b72373.JPG?20221223193508",
+      "detail_url": "/c/mckX174",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX049",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/221dd12b8a4e2fe2cc631c864f3903544ad5c99a.JPG?20211213212806",
+      "detail_url": "/c/mckX049",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX073",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/ff7f8ce83f4091c78e5977e2222d846306b7a95a.JPG?20221113233153",
+      "detail_url": "/c/mckX073",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX162",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/da7bd04711e853b8b5f04ed23266946cebc1ba0f.JPG?20260217235829",
+      "detail_url": "/c/mckX162",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckMidori",
+        "name": "デモみどり",
+        "profile_url": "/m/mckMidori"
+      },
+      "posted_at": "2026-09-29T23:11:00+09:00",
+      "tags": [
+        "モック"
+      ],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    }
+  ],
+  "og": {
+    "title": "モックコーデ",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/802b03230ba8cc6a6517d3edd9d769bf1e1303c0.JPG?20260929231129"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "mckX106",
+  "title": "モックアイテム",
+  "description": "モック用の説明です。",
+  "category": "帯揚",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/247aa17a19d5e2b41e039e29e2699784b3295974.jpeg?20251204210610"
+  ],
+  "user": {
+    "id": "mckTaro",
+    "name": "デモ太郎",
+    "profile_url": "/m/mckTaro"
+  },
+  "posted_at": "2025-12-04T21:06:00+09:00",
+  "tags": [],
+  "like_count": 0,
+  "gender": "women",
+  "used_in_coordinates": [
+    {
+      "id": "mckX169",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/49baa22fd10cea892e6b3eb708db544d7f4c8ba1.jpeg?20260412173808",
+      "detail_url": "/c/mckX169",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2025-12-04T21:06:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX012",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/a1d8f5699bb96a055623a67b9deaf1e72ad7a348.jpeg?20251222081023",
+      "detail_url": "/c/mckX012",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2025-12-04T21:06:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    }
+  ],
+  "related_items": [],
+  "og": {
+    "title": "モックアイテム",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/247aa17a19d5e2b41e039e29e2699784b3295974.jpeg?20251204210610"
+  }
+}

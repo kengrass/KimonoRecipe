@@ -4,12 +4,12 @@
  */
 import { REAL_USER_PROFILES } from "./mock-api-fixtures";
 import {
-  MOCK_BRAND_JOTARO_USER,
-  MOCK_BRAND_KIMONOMODERN_USER,
+  MOCK_BRAND_A_USER,
+  MOCK_BRAND_B_USER,
   MOCK_MEMBER_USER,
   MOCK_OTHER_USER,
   MOCK_OWNER_USER,
-  MOCK_TETEKO_USER,
+  MOCK_DEMO_MIDORI_USER,
 } from "./mock-data";
 import {
   getSearchCoordinateCatalog,
@@ -53,9 +53,9 @@ export function getMockPublicUserListPool(): PublicUserListItem[] {
     MOCK_OWNER_USER,
     MOCK_OTHER_USER,
     MOCK_MEMBER_USER,
-    MOCK_TETEKO_USER,
-    MOCK_BRAND_JOTARO_USER,
-    MOCK_BRAND_KIMONOMODERN_USER,
+    MOCK_DEMO_MIDORI_USER,
+    MOCK_BRAND_A_USER,
+    MOCK_BRAND_B_USER,
   ];
   for (const user of seeded) {
     if (byId.has(user.id)) continue;

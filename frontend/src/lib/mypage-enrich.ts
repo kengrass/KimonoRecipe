@@ -29,7 +29,7 @@ const MOCK_MY_FOLDERS: MypageMyFolder[] = [
 ];
 
 function userHasConfiguredMyFolders(userId: string): boolean {
-  return userId === "FL6QQa";
+  return userId === "mckDemo";
 }
 
 function withVisibility(item: PublicListItem, index = 0): MypageListItem {

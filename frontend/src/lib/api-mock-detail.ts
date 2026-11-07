@@ -42,12 +42,12 @@ function mockViewCount(id: string): number {
 
 /** 手書きモック（graph・代表詳細）。実写サンプルは mocks/api JSON を参照 */
 const MOCK_COORDINATE_DETAILS: Record<string, PublicCoordinateDetail> = {
-  FgNzIyU: MOCK_COORDINATE_DETAIL,
+  mckX046: MOCK_COORDINATE_DETAIL,
   ...GRAPH_COORDINATE_DETAILS,
 };
 
 const MOCK_ITEM_DETAILS: Record<string, PublicItemDetail> = {
-  ISSIeSA: MOCK_ITEM_DETAIL,
+  mckX070: MOCK_ITEM_DETAIL,
   ...GRAPH_ITEM_DETAILS,
 };
 

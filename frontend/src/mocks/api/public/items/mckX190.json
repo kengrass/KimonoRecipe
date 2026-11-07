@@ -1,0 +1,127 @@
+{
+  "id": "mckX190",
+  "title": "モックアイテム",
+  "description": "モック用の説明です。",
+  "category": "単衣",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/91fd69b1709f26562587c7dc566d936d72046d92.jpg?20240306212343",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/1a249a6c2f5baf7ccbd5a0eaa593ac1aa6cf4d10.jpg?20240306212343",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/ba537d430b410fbcbacfcfd1be0ba39efe3a8a36.jpg?20240306212343",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/3ca891542bed66ea3d33184dad53d42a06eb2a03.jpg?20240306212343"
+  ],
+  "user": {
+    "id": "mckBrandA",
+    "name": "デモブランドA",
+    "profile_url": "/m/mckBrandA"
+  },
+  "posted_at": "2024-03-04T20:22:00+09:00",
+  "tags": [
+    "モック"
+  ],
+  "like_count": 0,
+  "gender": "men",
+  "used_in_coordinates": [],
+  "related_items": [
+    {
+      "id": "mckX117",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/a8f5cddf801fd97c843110fa545111573c6e8f7e.jpg?20240131174622",
+      "detail_url": "/i/mckX117",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    },
+    {
+      "id": "mckX048",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c6651a5a08a8d10abc52b1d6a9502bb31b9fe843.jpg?20240131174818",
+      "detail_url": "/i/mckX048",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    },
+    {
+      "id": "mckX038",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/f9ba38f60bcba4aec61a5404b0bc24da0e9dcac7.jpg?20240131181751",
+      "detail_url": "/i/mckX038",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    },
+    {
+      "id": "mckX078",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/73a22ad641523ebbb558220a7c4c65a080b2a1e4.jpg?20240131183202",
+      "detail_url": "/i/mckX078",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    },
+    {
+      "id": "mckX037",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/083f3539993cc817fafe85ccd46cff7c157fd93d.jpg?20240131225136",
+      "detail_url": "/i/mckX037",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    },
+    {
+      "id": "mckX177",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/f3ec3f61c475848e9ce68189933a62f25e78cf2c.jpg?20240307124740",
+      "detail_url": "/i/mckX177",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandA",
+        "name": "デモブランドA",
+        "profile_url": "/m/mckBrandA"
+      },
+      "posted_at": "2024-03-04T20:22:00+09:00",
+      "tags": [],
+      "gender": "men",
+      "seasons": [],
+      "category": "単衣"
+    }
+  ],
+  "og": {
+    "title": "モックアイテム",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/91fd69b1709f26562587c7dc566d936d72046d92.jpg?20240306212343"
+  }
+}

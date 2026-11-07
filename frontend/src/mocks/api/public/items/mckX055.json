@@ -1,0 +1,125 @@
+{
+  "id": "mckX055",
+  "title": "モックアイテム",
+  "description": "モック用の説明です。",
+  "category": "帯揚",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/a183af2527bd517851232056666308c5337d5a1f.jpg?20240904165957",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/74f0b6af8569630d5847c9ec92df79c1f80d0ec0.jpg?20240904165957"
+  ],
+  "user": {
+    "id": "mckBrandB",
+    "name": "デモブランドB",
+    "profile_url": "/m/mckBrandB"
+  },
+  "posted_at": "2024-09-04T16:59:00+09:00",
+  "tags": [
+    "モック"
+  ],
+  "like_count": 0,
+  "gender": "women",
+  "used_in_coordinates": [],
+  "related_items": [
+    {
+      "id": "mckX157",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/6f1ef60a2a711f9b1a736342d64d111a3b997b09.jpg?20240904163810",
+      "detail_url": "/i/mckX157",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    },
+    {
+      "id": "mckX138",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c279f09ac9115a9e556f757ae1ff5a265e16408c.jpg?20240620130601",
+      "detail_url": "/i/mckX138",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    },
+    {
+      "id": "mckX002",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/1d43abe89adc7e3394a4feccda89a56cadd9a073.jpg?20240628132902",
+      "detail_url": "/i/mckX002",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    },
+    {
+      "id": "mckX005",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/5542efb471d351ab8044a47889a60fbd34c3d87b.jpg?20240822101156",
+      "detail_url": "/i/mckX005",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    },
+    {
+      "id": "mckX023",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/62c0c2529ef89763713d01f0a6e4f0ccef4ab2e2.jpg?20240620122903",
+      "detail_url": "/i/mckX023",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    },
+    {
+      "id": "mckX059",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/193314b2a377efd019dfb6b13e043c5e33ad40e7.jpg?20240404011314",
+      "detail_url": "/i/mckX059",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T16:59:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "帯揚"
+    }
+  ],
+  "og": {
+    "title": "モックアイテム",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/a183af2527bd517851232056666308c5337d5a1f.jpg?20240904165957"
+  }
+}

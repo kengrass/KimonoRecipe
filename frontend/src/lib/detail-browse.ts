@@ -114,7 +114,7 @@ export function coordinateItemsToBrowseList(
     tags: [item.category],
     seasons: [],
     detail_url: item.detail_url,
-    gender: user.id === "FL6QQa" ? "men" : "women",
+    gender: user.id === "mckDemo" ? "men" : "women",
     category: item.category,
   }));
 }

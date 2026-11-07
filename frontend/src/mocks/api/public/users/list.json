@@ -1,25 +1,25 @@
 {
   "data": [
     {
-      "id": "FL6QQa",
-      "name": "デモ運営",
-      "profile_url": "/m/FL6QQa",
-      "avatar_url": null,
-      "bio": "モック用の運営アカウントです。"
-    },
-    {
-      "id": "lRTLf6",
-      "name": "デモ太郎",
-      "profile_url": "/m/lRTLf6",
-      "avatar_url": null,
-      "bio": "モック用の投稿者です。"
-    },
-    {
-      "id": "6ohruL",
+      "id": "mckDemo",
       "name": "デモ花子",
-      "profile_url": "/m/demo-hanako",
+      "profile_url": "/m/mckDemo",
       "avatar_url": null,
-      "bio": "モック用の投稿者です。"
+      "bio": "架空のプロフィールです。"
+    },
+    {
+      "id": "mckTaro",
+      "name": "デモ太郎",
+      "profile_url": "/m/mckTaro",
+      "avatar_url": null,
+      "bio": "架空のプロフィールです。"
+    },
+    {
+      "id": "mckMidori",
+      "name": "デモみどり",
+      "profile_url": "/m/mckMidori",
+      "avatar_url": null,
+      "bio": "架空のプロフィールです。"
     }
   ],
   "meta": {

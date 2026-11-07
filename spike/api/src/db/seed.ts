@@ -34,7 +34,7 @@ function ensureAdsAndLogoSponsors() {
         name: "悉皆クリーニング 秋キャンペーン",
         advertiser: "きはだや",
         placements: ["home_top", "coord_detail"],
-        href: `${SITE}/special_sites/cleaning?utm_source=site&utm_medium=square&utm_campaign=kihadaya`,
+        href: "https://example.com/",
         imageUrl: SPONSOR_IMG,
         title: "着物のクリーニング（悉皆）",
         enabled: true,
@@ -48,7 +48,7 @@ function ensureAdsAndLogoSponsors() {
         name: "装いジュエリー（並行配信）",
         advertiser: "ジュエリーモック社",
         placements: ["home_top", "coord_detail"],
-        href: `${SITE}/special_sites/cleaning?utm_source=site&utm_medium=square&utm_campaign=jewelry_mock`,
+        href: "https://example.com/",
         imageUrl: SPONSOR_IMG,
         title: "装いのジュエリー（モック2枠目）",
         enabled: true,
@@ -62,7 +62,7 @@ function ensureAdsAndLogoSponsors() {
         name: "アイテム詳細テスト（停止中）",
         advertiser: "きはだや",
         placements: ["item_detail"],
-        href: `${SITE}/special_sites/cleaning?utm_source=site&utm_medium=square&utm_campaign=kihadaya`,
+        href: "https://example.com/",
         imageUrl: SPONSOR_IMG,
         title: "着物のクリーニング（悉皆）",
         enabled: false,
@@ -83,7 +83,7 @@ function ensureAdsAndLogoSponsors() {
         id: "logo-pearltone",
         sponsorName: "デモスポンサーP",
         logoUrl: "/sponsors/pearltone.png",
-        href: "https://www.pearltone.com/",
+        href: "https://example.com/",
         packageNote: "加工・ケア（営業用サンプル）",
         enabled: true,
         startOn: "2026-01-01",
@@ -94,7 +94,7 @@ function ensureAdsAndLogoSponsors() {
         id: "logo-jotaro",
         sponsorName: "デモスポンサーA",
         logoUrl: "/sponsors/jotaro.png",
-        href: "https://www.jotaro.net/",
+        href: "https://example.com/",
         packageNote: "メーカー・ブランド（営業用サンプル）",
         enabled: true,
         startOn: "2026-01-01",
@@ -105,7 +105,7 @@ function ensureAdsAndLogoSponsors() {
         id: "logo-kyo-roman",
         sponsorName: "デモスポンサーB",
         logoUrl: "/sponsors/kyo-roman.png",
-        href: "https://kyo-roman.com/",
+        href: "https://example.com/",
         packageNote: "小売・呉服店（営業用サンプル）",
         enabled: true,
         startOn: "2026-01-01",
@@ -116,7 +116,7 @@ function ensureAdsAndLogoSponsors() {
         id: "logo-nihon-wasou",
         sponsorName: "デモスポンサーC",
         logoUrl: "/sponsors/nihon-wasou.png",
-        href: "https://www.wasou.com/",
+        href: "https://example.com/",
         packageNote: "着付け・教室（営業用サンプル）",
         enabled: true,
         startOn: "2026-01-01",
@@ -133,6 +133,7 @@ function ensureAdsAndLogoSponsors() {
 }
 
 function ensureUser(opts: {
+  id: string;
   email: string;
   name: string;
   password: string;
@@ -140,22 +141,21 @@ function ensureUser(opts: {
   isAdmin?: boolean;
 }): string {
   const existing = db
-    .prepare(`SELECT id FROM users WHERE email = ?`)
-    .get(opts.email) as { id: string } | undefined;
+    .prepare(`SELECT id FROM users WHERE email = ? OR id = ?`)
+    .get(opts.email, opts.id) as { id: string } | undefined;
   const isAdmin = opts.isAdmin ? 1 : 0;
   if (existing) {
     db.prepare(
-      `UPDATE users SET name = ?, bio = ?, is_admin = ? WHERE id = ?`,
-    ).run(opts.name, opts.bio, isAdmin, existing.id);
+      `UPDATE users SET id = ?, email = ?, name = ?, bio = ?, is_admin = ? WHERE id = ?`,
+    ).run(opts.id, opts.email, opts.name, opts.bio, isAdmin, existing.id);
     console.log(`user already exists: ${opts.email}`);
-    return existing.id;
+    return opts.id;
   }
-  const id = newPublicId(6);
   db.prepare(
     `INSERT INTO users (id, email, name, password_hash, bio, avatar_url, created_at, is_admin)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
   ).run(
-    id,
+    opts.id,
     opts.email,
     opts.name,
     hashPassword(opts.password),
@@ -164,23 +164,25 @@ function ensureUser(opts: {
     new Date().toISOString(),
     isAdmin,
   );
-  console.log(`seeded user ${opts.email} / ${opts.password} (id=${id})`);
-  return id;
+  console.log(`seeded user ${opts.email} / ${opts.password} (id=${opts.id})`);
+  return opts.id;
 }
 
 const demoId = ensureUser({
+  id: "mckDemo",
   email: "demo@example.com",
   name: "デモ花子",
   password: "demo-pass",
-  bio: "Spike デモ用（架空）。管理 API は is_admin=1 のこのアカウントのみ。",
+  bio: "架空のデモ運営者です。管理 API は is_admin=1 のこのアカウントのみ。",
   isAdmin: true,
 });
 
 const otherId = ensureUser({
-  email: "other@example.com",
-  name: "デモ次郎",
+  id: "mckMidori",
+  email: "midori@example.com",
+  name: "デモみどり",
   password: "other-pass",
-  bio: "Spike フォロー先（架空・非管理者）。",
+  bio: "架空の投稿者です（非管理者）。",
 });
 
 addFollow(demoId, otherId);

@@ -24,7 +24,7 @@ Next UI（1カラム）向け。退避 `_archive/lab-20260923` と比較可。
 
 ## 詳細 `/c/{id}` `/i/{id}`
 
-- [x] BrowseBar（一覧・前後）— `/c/FgNzIyU` `/i/ISSIeSA` で確認
+- [x] BrowseBar（一覧・前後）— `/c/mckX046` `/i/mckX070` で確認
 - [x] 構成アイテム／利用コーデが本文下に出る（右カラムに逃げない）
 - [x] コーデ／アイテム詳細: 純広告枠（案件なしは非表示）
 - [x] 所有者モードで編集・非公開メモ（owner fixture 経由）。**Myフォルダ UI は無し**
@@ -53,8 +53,8 @@ Next UI（1カラム）向け。退避 `_archive/lab-20260923` と比較可。
 
 ## モックAPI見本
 
-- [x] 本命公開 JSON: `mocks/api/public/coordinates/FgNzIyU.json` / `items/ISSIeSA.json`
-- [x] owner JSON: `mocks/api/owner/coordinates/FgNzIyU.json` / `items/ISSIeSA.json`
+- [x] 本命公開 JSON: `mocks/api/public/coordinates/mckX046.json` / `items/mckX070.json`
+- [x] owner JSON: `mocks/api/owner/coordinates/mckX046.json` / `items/mckX070.json`
 - [x] ユーザー検索: `mocks/api/public/users/list.json`
 
 ## 投稿・設定

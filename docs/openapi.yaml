@@ -469,7 +469,7 @@ components:
           type: string
         profile_url:
           type: string
-          description: 相対パス推奨（例 /m/FL6QQa）
+          description: 相対パス推奨（例 /m/mckDemo）
 
     PublicUserProfile:
       type: object

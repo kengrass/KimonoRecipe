@@ -1,0 +1,127 @@
+{
+  "id": "mckX109",
+  "title": "モックアイテム",
+  "description": "モック用の説明です。",
+  "category": "履物",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/b007a1f7743adb659fcd4093c58477707dc07e96.jpg?20240904172149",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/bfd759137d3f9678c43557c038ebce75fe70ba8a.jpg?20240904172149",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/2a98dae28b720aa7bbdbe932f565161739787d07.jpg?20240904172149",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/8c66c8737bc84b4f75180268142cb809af75f4db.jpg?20240904172149"
+  ],
+  "user": {
+    "id": "mckBrandB",
+    "name": "デモブランドB",
+    "profile_url": "/m/mckBrandB"
+  },
+  "posted_at": "2024-09-04T17:21:00+09:00",
+  "tags": [
+    "モック"
+  ],
+  "like_count": 0,
+  "gender": "women",
+  "used_in_coordinates": [],
+  "related_items": [
+    {
+      "id": "mckX114",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/674c0de1b356d2462c6d2fa09f7865e90a61a93d.jpg?20240709125356",
+      "detail_url": "/i/mckX114",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    },
+    {
+      "id": "mckX007",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/63f6dc16b0304759617f55684ce437829ad0e3fe.jpg?20240709125636",
+      "detail_url": "/i/mckX007",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    },
+    {
+      "id": "mckX097",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/bec0590b167a1e78a833f42f2514768f305588e6.jpg?20240620132957",
+      "detail_url": "/i/mckX097",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    },
+    {
+      "id": "mckX159",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/76239e3a87e845fe70e639873b565615191ad238.jpg?20240822101345",
+      "detail_url": "/i/mckX159",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    },
+    {
+      "id": "mckX111",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/0b59135db4ecdf18a834263ec4e5029b7a452044.jpg?20240620124856",
+      "detail_url": "/i/mckX111",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    },
+    {
+      "id": "mckX107",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c7b164bc7bc7db7c61046b2b425d62401907b09f.jpg?20240724100302",
+      "detail_url": "/i/mckX107",
+      "title": "モックアイテム",
+      "user": {
+        "id": "mckBrandB",
+        "name": "デモブランドB",
+        "profile_url": "/m/mckBrandB"
+      },
+      "posted_at": "2024-09-04T17:21:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "category": "履物"
+    }
+  ],
+  "og": {
+    "title": "モックアイテム",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/b007a1f7743adb659fcd4093c58477707dc07e96.jpg?20240904172149"
+  }
+}

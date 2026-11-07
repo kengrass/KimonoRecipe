@@ -1,0 +1,122 @@
+{
+  "id": "mckX089",
+  "title": "モックコーデ",
+  "description": "モック用の説明です。",
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/2dfadeb1456ff7b0644c22f408f6e683ae2f86d8.jpeg?20260929235843"
+  ],
+  "user": {
+    "id": "mckTaro",
+    "name": "デモ太郎",
+    "profile_url": "/m/mckTaro"
+  },
+  "posted_at": "2026-09-29T23:58:00+09:00",
+  "tags": [],
+  "like_count": 0,
+  "gender": "women",
+  "obi_knot": "創作帯結び",
+  "items": [],
+  "related_coordinates": [
+    {
+      "id": "mckX182",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/2ce47714c6b5023eece16ee5755a57bd9ace2a85.jpeg?20230815211645",
+      "detail_url": "/c/mckX182",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX058",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/801ed1bdaaa685f33e1ec1745d3a7d91bcbb887a.jpeg?20230911195854",
+      "detail_url": "/c/mckX058",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX093",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c4efea675696bc817b7a43a0864c32d49dbbd449.jpeg?20240820225657",
+      "detail_url": "/c/mckX093",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX143",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/883f99f321188781fce0627d6dcea169f4a19d5f.jpeg?20260416182657",
+      "detail_url": "/c/mckX143",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX101",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/ffe4a7c10592a05753e6c2496df6d16e4e3c4b0a.jpeg?20251213122955",
+      "detail_url": "/c/mckX101",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    },
+    {
+      "id": "mckX033",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/8c731e12e817a64b6ea8bc57c955ad17777ace0d.jpeg?20250403203345",
+      "detail_url": "/c/mckX033",
+      "title": "モックコーデ",
+      "user": {
+        "id": "mckTaro",
+        "name": "デモ太郎",
+        "profile_url": "/m/mckTaro"
+      },
+      "posted_at": "2026-09-29T23:58:00+09:00",
+      "tags": [],
+      "gender": "women",
+      "seasons": [],
+      "obi_knot": "創作帯結び"
+    }
+  ],
+  "og": {
+    "title": "モックコーデ",
+    "description": "モック用の説明です。",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/2dfadeb1456ff7b0644c22f408f6e683ae2f86d8.jpeg?20260929235843"
+  }
+}

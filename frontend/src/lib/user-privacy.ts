@@ -23,16 +23,16 @@ const DEFAULT_PRIVACY: UserListPrivacy = {
 /** モック：ユーザーごとの公開設定（本番はプロフィール設定 API） */
 const MOCK_LIST_PRIVACY: Record<string, UserListPrivacy> = {
   // オーナーは両方公開（公開APIに載る例）
-  FL6QQa: {
+  mckDemo: {
     my_folder_visibility: "public",
     my_categories_visibility: "public",
   },
   // デモ投稿者は両方自分のみ（公開APIに載せない例）
-  "6ohruL": {
+  "mckMidori": {
     my_folder_visibility: "private",
     my_categories_visibility: "private",
   },
-  lRTLf6: {
+  mckTaro: {
     my_folder_visibility: "private",
     my_categories_visibility: "private",
   },

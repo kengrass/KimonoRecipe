@@ -79,7 +79,7 @@ const MOCK_MY_FOLDERS: MypageMyFolder[] = [
 
 /** 未設定以外の Myフォルダを1つ以上持つか（モックはオーナーのみ） */
 export function userHasConfiguredMyFolders(userId: string): boolean {
-  return userId === "FL6QQa";
+  return userId === "mckDemo";
 }
 
 export const MYPAGE_SEASONS: { id: MypageSeason; label: string }[] = [
@@ -118,15 +118,15 @@ export function pickPublicSize(
 }
 
 const MOCK_BIOS: Record<string, string> = {
-  FL6QQa: "モック用の運営アカウントです。",
-  lRTLf6: "モック用の投稿者です。",
-  "6ohruL": "モック用の投稿者です。",
-  dU9xEE: "モック用ブランドです。",
-  WI7JsO: "モック用ブランドです。",
+  mckDemo: "モック用の運営アカウントです。",
+  mckTaro: "モック用の投稿者です。",
+  "mckMidori": "モック用の別投稿者です。",
+  mckBrandA: "モック用ブランドです。",
+  mckBrandB: "モック用ブランドです。",
 };
 
 const MOCK_PROFILE_LINKS: Record<string, ProfileLink[]> = {
-  FL6QQa: [
+  mckDemo: [
     { label: "👘とは？", href: `${LARAVEL_ORIGIN}/about.html` },
     {
       label: "👘ご利用方法",
@@ -136,7 +136,7 @@ const MOCK_PROFILE_LINKS: Record<string, ProfileLink[]> = {
 };
 
 const MOCK_SNS: Record<string, ProfileSns[]> = {
-  FL6QQa: [
+  mckDemo: [
     { kind: "x", label: "X", href: "https://twitter.com/kimonorecipe" },
     {
       kind: "facebook",
@@ -157,7 +157,7 @@ const MOCK_SNS: Record<string, ProfileSns[]> = {
 };
 
 const MOCK_SIZES: Record<string, { label: string; value: string }[]> = {
-  FL6QQa: [
+  mckDemo: [
     { label: "身長", value: "160cm" },
     { label: "身丈", value: "—" },
     { label: "裄", value: "—" },

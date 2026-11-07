@@ -2,7 +2,7 @@
 export type PublicUser = {
   id: string;
   name: string;
-  /** 相対パス推奨（例: /m/FL6QQa）。絶対URLも可 */
+  /** 相対パス推奨（例: /m/mckDemo）。絶対URLも可 */
   profile_url: string;
   /** 任意。相対 or CDN URL */
   avatar_url?: string | null;

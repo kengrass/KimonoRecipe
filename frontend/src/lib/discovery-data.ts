@@ -44,29 +44,29 @@ function mockPublicContentCounts(userId: string): {
 const POPULAR_USER_SEEDS: Omit<PopularUser, "coordinateCount" | "itemCount">[] =
   [
     {
-      id: "FL6QQa",
-      name: "デモ運営",
-      profile_url: "/m/FL6QQa",
-    },
-    {
-      id: "lRTLf6",
-      name: "デモ太郎",
-      profile_url: "/m/lRTLf6",
-    },
-    {
-      id: "6ohruL",
+      id: "mckDemo",
       name: "デモ花子",
-      profile_url: "/m/6ohruL",
+      profile_url: "/m/mckDemo",
     },
     {
-      id: "dU9xEE",
+      id: "mckTaro",
+      name: "デモ太郎",
+      profile_url: "/m/mckTaro",
+    },
+    {
+      id: "mckMidori",
+      name: "デモみどり",
+      profile_url: "/m/mckMidori",
+    },
+    {
+      id: "mckBrandA",
       name: "デモブランドA",
-      profile_url: "/m/dU9xEE",
+      profile_url: "/m/mckBrandA",
     },
     {
-      id: "WI7JsO",
+      id: "mckBrandB",
       name: "デモブランドB",
-      profile_url: "/m/WI7JsO",
+      profile_url: "/m/mckBrandB",
     },
   ];
 
