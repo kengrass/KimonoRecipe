@@ -38,7 +38,6 @@ AWS 上の実現（RDS 等）はエンジニアと協議。
 | `mail_opt_in` | 運営メール受信可否 |
 | `links_json` | 公開プロフィールリンク `[{title,url}]`（最大10） |
 | `sns_json` | 公開SNS `{ twitter,instagram,… }`（フルURL） |
-| `public_size_json` | 公開サイズ `[{label,value}]`（身長・身丈など） |
 | `admin_status` | 管理状態 `active` / `suspended` / `withdrawn` |
 | `admin_note` | 管理メモ |
 | `mail_rejected` | メール拒否 |

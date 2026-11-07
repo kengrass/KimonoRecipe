@@ -69,7 +69,6 @@ type Props = {
     bio: string;
     links: LinkPair[];
     sns: Record<SnsKey, string>;
-    publicSize?: Array<{ label: string; value: string }>;
   };
 };
 
@@ -141,16 +140,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
   const [email, setEmail] = useState(initial.email);
   const [mailOptIn, setMailOptIn] = useState(initial.mailOptIn);
   const [bio, setBio] = useState(initial.bio);
-  const [heightCm, setHeightCm] = useState(
-    () =>
-      initial.publicSize?.find((x) => x.label === "身長")?.value.replace(/cm$/i, "") ??
-      "",
-  );
-  const [mitakeCm, setMitakeCm] = useState(
-    () =>
-      initial.publicSize?.find((x) => x.label === "身丈")?.value.replace(/cm$/i, "") ??
-      "",
-  );
 
   // 保存後の refresh でサーバ値をフォームへ戻す
   useEffect(() => {
@@ -201,18 +190,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
           }
           return next;
         });
-      }
-      if (me.public_size) {
-        setHeightCm(
-          me.public_size
-            .find((x) => x.label === "身長")
-            ?.value.replace(/cm$/i, "") ?? "",
-        );
-        setMitakeCm(
-          me.public_size
-            .find((x) => x.label === "身丈")
-            ?.value.replace(/cm$/i, "") ?? "",
-        );
       }
     })();
   }, []);
@@ -309,25 +286,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
                 className="min-h-[5.5rem]"
               />
             </Field>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <Field label="公開サイズ・身長（cm）">
-                <TextInput
-                  value={heightCm}
-                  onChange={(e) => setHeightCm(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="例: 158"
-                />
-              </Field>
-              <Field label="公開サイズ・身丈（cm）">
-                <TextInput
-                  value={mitakeCm}
-                  onChange={(e) => setMitakeCm(e.target.value)}
-                  inputMode="decimal"
-                  placeholder="例: 160"
-                />
-              </Field>
-            </div>
 
             <div className="space-y-4">
               <div>
@@ -468,11 +426,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
                   );
                   if (url) sns[field.key] = url;
                 }
-                const public_size: Array<{ label: string; value: string }> = [];
-                const h = heightCm.trim();
-                const m = mitakeCm.trim();
-                if (h) public_size.push({ label: "身長", value: `${h}cm` });
-                if (m) public_size.push({ label: "身丈", value: `${m}cm` });
                 void (async () => {
                   try {
                     await spikePatchMe({
@@ -480,7 +433,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
                       bio: nextBio,
                       links,
                       sns,
-                      public_size,
                     });
                     setDisplayName(trimmed);
                     setBio(nextBio);

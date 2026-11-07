@@ -111,7 +111,6 @@ export default async function ProfileSettingsPage({ searchParams }: PageProps) {
                 youtube: "",
                 tiktok: "",
               },
-          publicSize: profile?.public_size ?? [],
         }}
       />
     </FormPageShell>

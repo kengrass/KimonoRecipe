@@ -56,8 +56,7 @@ Myフォルダ／Myカテゴリは扱わない。
 表示名変更時: 他ユーザーと重複 → `409 { "error": "name_taken" }`。  
 直近180日以内に本人が使っていた名前への変更 → `409 { "error": "name_recently_used" }`。
 
-`GET /api/me` は上記に加え `email`, `mail_opt_in`, `links`, `sns`, `public_size` を返す。  
-`PATCH` で `public_size: [{ "label": "身長", "value": "158cm" }]` も可。
+`GET /api/me` は上記に加え `email`, `mail_opt_in`, `links`, `sns` を返す。
 
 ### `POST /api/me/email/request` `{ "email" }`
 

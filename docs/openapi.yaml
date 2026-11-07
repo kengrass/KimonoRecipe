@@ -508,16 +508,6 @@ components:
                 type: string
               label:
                 type: string
-        public_size:
-          type: array
-          items:
-            type: object
-            required: [label, value]
-            properties:
-              label:
-                type: string
-              value:
-                type: string
 
     PublicUserListItem:
       type: object

@@ -369,7 +369,7 @@ GET /api/public/items?user=mckDemo&page=1
 ### `GET /api/public/users/{id}`
 
 マイページ上部の **公開プロフィール（名刺）**。投稿一覧とは別口。  
-無いユーザーは **404**。非公開の自己紹介・サイズは載せない。
+無いユーザーは **404**。非公開の自己紹介は載せない。
 
 ```json
 {
@@ -379,8 +379,7 @@ GET /api/public/items?user=mckDemo&page=1
   "avatar_url": null,
   "bio": "きものレシピの企画から運営までを行なっています。",
   "profile_links": [{ "label": "👘とは？", "href": "https://www.kimonorecipe.com/about.html" }],
-  "sns": [{ "kind": "x", "label": "X", "href": "https://twitter.com/kimonorecipe" }],
-  "public_size": [{ "label": "身長", "value": "158cm" }]
+  "sns": [{ "kind": "x", "label": "X", "href": "https://twitter.com/kimonorecipe" }]
 }
 ```
 
@@ -390,7 +389,6 @@ GET /api/public/items?user=mckDemo&page=1
 | avatar_url | | 任意 |
 | bio | | 公開自己紹介。未設定は `""` または省略 |
 | profile_links / sns | | 公開リンクのみ |
-| public_size | | 公開してよいサイズのみ（身長・身丈など） |
 
 見本: `frontend/src/mocks/api/public/users/mckDemo.json`  
 フロント: `getPublicUser` ← `/m/[id]`
