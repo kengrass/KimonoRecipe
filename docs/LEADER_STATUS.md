@@ -65,7 +65,7 @@ Myフォルダ／Myカテゴリは **新系に含めない**。
 | 順 | やること | 完了の見え方 |
 |----|----------|--------------|
 | **0** | 方針理解（新DB・三口・公開範囲） | [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) の意図が共有できる |
-| **1** | AWS 上の DB／API 配置を協議 | 置き場が決まる（起点: [`FORMAL_SHELF_STARTER.md`](./FORMAL_SHELF_STARTER.md)） |
+| **1** | AWS 上の DB／API 配置を協議（**後回し可**） | 置き場が決まる（起点: [`FORMAL_SHELF_STARTER.md`](./FORMAL_SHELF_STARTER.md)）。モック画像は現行 CDN 残しで確定済み |
 | **2** | 新スキーマ＋同じ手続きを実装（AI 草案可） | spike と同じ口が正式棚で動く |
 | **3** | 既存からの必要データ移行 | 移行対象だけ載る |
 

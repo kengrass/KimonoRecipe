@@ -14,7 +14,7 @@
 - 新UI／API／新DBを本番の正にする  
 - spike は動く証明（任意・本番ではない）  
 - 移行は **ユーザー単位＋大口案 B**（正は [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md)）  
-- AWS の置き方・時期はエンジニアと協議  
+- モック画像 URL は現行 CDN 残し（確定）。正式棚の体制・時期は後回し（[`FORMAL_SHELF_STARTER.md`](./FORMAL_SHELF_STARTER.md)）  
 
 ---
 
