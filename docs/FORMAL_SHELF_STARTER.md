@@ -3,9 +3,10 @@
 **目的:** エンジニアがゼロから設計しなくてもよいよう、**最小の正式棚草案**と役割分担を先に固定する。  
 AI が実装の大半を書き、人が **所有・権限・WAF・移行・受け入れ** を担う前提。
 
-**本番の正は協議後の AWS 棚。** 本ファイルは独断の最終構成ではなく、**着手用の既定案**（崩すときは協議）。
+**本番の正は協議後の AWS 棚。** 本ファイルは独断の最終構成ではなく、**着手用の既定案**（崩すときは協議）。  
+**提供済み（UI／API 形／spike）＝このまま公開可、ではない。** スタート地点の定義は [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md)。
 
-関連: [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) ・ [`NEW_DB.md`](./NEW_DB.md) ・ [`../spike/docs/API.md`](../spike/docs/API.md) ・ [`OPS_SECURITY.md`](./OPS_SECURITY.md) ・ [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md) ・ [`DO_NOT.md`](./DO_NOT.md)
+関連: [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) ・ [`DELIVERY_MODEL.md`](./DELIVERY_MODEL.md) ・ [`NEW_DB.md`](./NEW_DB.md) ・ [`../spike/docs/API.md`](../spike/docs/API.md) ・ [`OPS_SECURITY.md`](./OPS_SECURITY.md) ・ [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md) ・ [`DO_NOT.md`](./DO_NOT.md)
 
 ---
 

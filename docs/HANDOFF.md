@@ -3,7 +3,7 @@
 人が最初に読むのは **[`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md)**（1枚の方針）です。  
 このファイルは、AI にリポを読ませるときや、実装中に参照するリンク集です。
 
-更新: 2026-11-06
+更新: 2026-11-07
 
 ---
 
@@ -11,8 +11,9 @@
 
 経緯・前提は [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) にだけ書いてある。ここはリンク集。
 
-- 新UI／API／新DBを本番の正にする  
-- spike は動く証明（任意・本番ではない）  
+- **スタート地点:** 提供済み＝UI＋API の形＋spike 見本。**このリポをそのまま公開する想定はない**（定義は FOR_ENGINEERS）  
+- 新UI／API／新DBを本番の正にする（本番実装は正式棚）  
+- spike は動く証明（任意・本番ではない。穴ごとコピーしない）  
 - 移行は **ユーザー単位＋大口案 B**（正は [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md)）  
 - モック画像 URL は現行 CDN 残し（確定）。正式棚の体制・時期は後回し（[`FORMAL_SHELF_STARTER.md`](./FORMAL_SHELF_STARTER.md)）  
 - API 文書の正: 一覧=`API_CATALOG`／フィールド=`API_CONTRACT`／手続き=`spike/docs/API.md`／OpenAPI=読み取り副本  

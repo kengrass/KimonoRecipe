@@ -7,11 +7,12 @@ alwaysApply: true
 
 このリポジトリの基本方針:
 
+- **提供済み ≠ 本番公開可。** 渡しているのは UI・API の形・新DB意図・モック／spike 見本。リポ単体をそのまま公開する想定はない（定義: `docs/FOR_ENGINEERS.md`）
 - **提供済み（企画側・変更しない）:** Next UI・API 手続き・新DB意図・モック／spike
 - **エンジニア側／エージェントの仕事:** 同じ手続きを **新DB＋正式棚（AWS）** に実装する。置き方は協議
-- **spike／Supabase:** 動く証明（任意）。本番扱いしない
+- **spike／Supabase:** 動く証明（任意）。本番扱いしない。穴ごと本番に写さない
 - **経緯は入口だけ:** `docs/FOR_ENGINEERS.md`（他ドキュメントに「以前はこうだった」を書かない）
 
 渡すセット: `docs/HANDOFF.md` ・ 詳細: `docs/DELIVERY_MODEL.md` ・ `docs/NEW_DB.md` ・ 入口: `AGENTS.md` ・ 禁止: `docs/DO_NOT.md`
 
-やってはいけない例: Next UI のリデザイン、契約変更、公開 API に非公開、全件取得、既存スパゲティ継承、spike＝本番。
+やってはいけない例: Next UI のリデザイン、契約変更、公開 API に非公開、全件取得、既存スパゲティ継承、spike＝本番、「提供済み＝公開可」と読み替えること。

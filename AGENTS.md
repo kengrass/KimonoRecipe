@@ -8,9 +8,10 @@
 
 ## 役割（最重要）
 
-- **提供済み（企画側・勝手に変えない）:** Next UI・API のパス／クエリ／JSON 形・新DB意図・モック／spike
-- **エンジニア側の本丸:** 同じ手続きを **新DB＋AWS 上の正式棚** に実装する
-- **spike:** 仕様どおり動く証明（任意）。本番扱いしない → [`spike/README.md`](./spike/README.md)
+- **提供済み ≠ 本番公開可。** 定義は [`docs/FOR_ENGINEERS.md`](./docs/FOR_ENGINEERS.md)「スタート地点の定義」。このリポをそのまま外向け公開する想定はない
+- **提供済み（企画側・勝手に変えない）:** Next UI・API のパス／クエリ／JSON 形・新DB意図・モック／spike（見本）
+- **エンジニア側の本丸:** 同じ手続きを **新DB＋AWS 上の正式棚** に実装する（置き場・体制は協議）
+- **spike:** 仕様どおり動く証明（任意）。本番扱いしない。穴ごと本番に写さない → [`spike/README.md`](./spike/README.md)
 - 人向け経緯・方針: [`docs/FOR_ENGINEERS.md`](./docs/FOR_ENGINEERS.md)
 - 詳細: [`docs/DELIVERY_MODEL.md`](./docs/DELIVERY_MODEL.md) ・ [`docs/NEW_DB.md`](./docs/NEW_DB.md) ・ 進捗: [`docs/LEADER_STATUS.md`](./docs/LEADER_STATUS.md)
 

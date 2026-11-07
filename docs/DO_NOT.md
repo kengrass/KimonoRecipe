@@ -13,7 +13,7 @@
 9. **タイトル空をバグ扱い** — `title: ""` は正常
 10. **本番でモック認証 Cookie に頼る** — API 接続後は無視。`getServerViewerUserId` に実セッションを差し込む（[`OPS_SECURITY.md`](./OPS_SECURITY.md)）
 11. **既存スパゲティ DB を新系の正にする** — 新DBは新UI／APIから設計（`NEW_DB.md`）
-12. **spike／Supabase を本番扱いする**
+12. **spike／Supabase を本番扱いする** — 見本の穴を本番に写さない。提供済み＝公開可と読み替えない（[`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md)）
 13. **本番会員の投稿・プロフィールをモック／シードに取り込む** — 架空データのみ。**例外（確定）:** 表示検証用に現行 CDN（CloudFront）の画像 URL は残してよい。UID・名前・タイトル・本文はダミー。正式棚のメディアが正になったら差し替え
 
 正: [`NEW_DB.md`](./NEW_DB.md) ・ [`DELIVERY_MODEL.md`](./DELIVERY_MODEL.md) ・ [`AGENTS.md`](../AGENTS.md)
