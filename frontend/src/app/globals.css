@@ -1,0 +1,533 @@
+@import "tailwindcss";
+
+:root {
+  --kr-navy: #1c3550;
+  --kr-navy-deep: #1a242f;
+  /* 参考UIヘッダー（Next navy と一目で区別できる橙） */
+  --kr-legacy-bar: #c2410c;
+  --kr-text: #2c3e50;
+  --kr-muted: #95a5a6;
+  --kr-bg: #fafafa;
+  --kr-white: #ffffff;
+  /* ヘッダー navy に寄せたリンク（旧 #3498db より沈めて写真主役と調和） */
+  --kr-link: #3a6d9b;
+  --kr-tag: #5a87a8;
+  --kr-teal: #18bc9c;
+  --kr-border: #e5e7eb;
+  --kr-owner: #f39c12;
+  /*
+   * 一覧3列タイル：現行は列ギャップ0だが、サムネに約1.2px pad →
+   * 画像間・端とも約2.4pxで均一。ここは gap 2px で同等の見え方にする。
+   */
+  --kr-tile-gap: 2px;
+  /* キャプション付きタイル：画像→文言、行どうし、左右のごく薄い余白 */
+  --kr-tile-caption-gap: 0.25rem;
+  --kr-tile-row-gap: 0.5rem;
+  --kr-tile-caption-pad-x: 0.125rem;
+  /* スマホのページ左右余白（一覧・検索・マイページ・詳細テキスト） */
+  --kr-page-pad-x: 0.5rem;
+  --kr-content-max: 560px;
+  --kr-detail-hero-max: 560px;
+  /* main 上余白（スケルトンと実コンテンツで共有） */
+  --kr-main-pad-y: 1rem;
+  --kr-main-pad-y-md: 1.5rem;
+  /* BrowseBar：戻る／<> はコンパクトに */
+  --kr-browse-bar-height: 1.75rem;
+  --kr-browse-bar-gap: 0.5rem;
+  /* sticky オフセット。実高さは StickySiteChrome が上書き */
+  --kr-aside-sticky-top: 6.75rem;
+}
+
+@theme inline {
+  --color-kr-navy: var(--kr-navy);
+  --color-kr-legacy-bar: var(--kr-legacy-bar);
+  --color-kr-text: var(--kr-text);
+  --color-kr-muted: var(--kr-muted);
+  --color-kr-bg: var(--kr-bg);
+  --color-kr-link: var(--kr-link);
+  --color-kr-tag: var(--kr-tag);
+  --color-kr-teal: var(--kr-teal);
+  --color-kr-border: var(--kr-border);
+  --color-kr-owner: var(--kr-owner);
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Yu Gothic",
+    Meiryo, system-ui, sans-serif;
+}
+
+/* 運営管理：参考UI相当のトークン */
+.admin-ui {
+  --fg: var(--kr-text);
+  --muted: #6b7280;
+  --line: var(--kr-border);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* スクロールバー有無で幅が変わらないようガターのみ確保（常時 overflow-y:scroll はしない＝二重バー防止） */
+html {
+  scrollbar-gutter: stable;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    background: var(--kr-bg);
+    color: var(--kr-text);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* inherit は base 層に置く。utilities の text-white 等を上書きしない */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.container-kr {
+  width: min(var(--kr-content-max), 100%);
+  margin-inline: auto;
+  padding-inline: var(--kr-tile-gap);
+}
+
+.container-kr--bar {
+  /* 1カラム Next UI：コンテンツ列と同じ幅 */
+  width: min(var(--kr-content-max), 100%);
+  padding-inline: var(--kr-page-pad-x);
+}
+
+@media (min-width: 768px) {
+  .container-kr--bar {
+    padding-inline: 0;
+  }
+}
+
+/* 一覧・検索・マイページ：モバイルのみ左右余白、PC は container 幅に揃える */
+.container-kr--page {
+  padding-inline: var(--kr-page-pad-x);
+}
+
+@media (min-width: 768px) {
+  .container-kr--page {
+    padding-inline: 0;
+  }
+}
+
+.page-section {
+  margin-bottom: 2.5rem;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+/* 詳細ページのメイン画像（コーデ／アイテム共通） */
+.detail-hero-image {
+  width: 100%;
+  max-width: var(--kr-detail-hero-max);
+  margin-inline: auto;
+}
+
+/* トップ／詳細共通シェル（メイン列幅を揃える） */
+.page-shell {
+  width: min(var(--kr-content-max), 100%);
+  margin-inline: auto;
+  padding-inline: var(--kr-page-pad-x);
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding-inline: 0;
+  }
+}
+
+/*
+ * 投稿・設定フォーム：外側は --kr-bg、有効幅は白地でフォーカス。
+ * 入力が端に張り付かないよう一覧より広めの内側余白。
+ * 一覧タイルの --kr-page-pad-x は触らない。
+ */
+.page-shell--form {
+  padding-inline: 1.25rem;
+  padding-block: 1.25rem;
+  background: var(--kr-white);
+}
+
+@media (min-width: 768px) {
+  .page-shell--form {
+    padding-inline: 1.5rem;
+    padding-block: 1.5rem;
+    border: 1px solid var(--kr-border);
+    border-radius: 0.75rem;
+  }
+}
+
+.page-shell__main {
+  min-width: 0;
+  width: 100%;
+}
+
+/*
+ * 一覧・詳細共通：正方形サムネ（角丸なし・cover）。
+ * ホバー拡大は一覧レール／詳細タイルで共通。
+ */
+.tile-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+/*
+ * 画像上の操作／状態チップ（白基調で統一）。
+ * アイコン色は navy／text。暗い半透明は使わない。
+ */
+.tile-overlay-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--kr-navy);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+  transition: background-color 120ms;
+}
+
+.tile-overlay-btn:hover {
+  background: #fff;
+}
+
+.tile-overlay-btn:disabled {
+  opacity: 0.35;
+}
+
+.tile-overlay-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+}
+
+.tile-overlay-check--on {
+  background: var(--kr-navy);
+  color: #fff;
+}
+
+.tile-overlay-check--off {
+  background: rgb(255 255 255 / 0.92);
+  color: transparent;
+}
+
+.tile-overlay-badge {
+  border-radius: 0.25rem;
+  background: rgb(255 255 255 / 0.92);
+  color: var(--kr-navy);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 6%);
+  font-weight: 500;
+}
+
+.tile-overlay-badge--accent {
+  background: var(--kr-navy);
+  color: #fff;
+  box-shadow: none;
+}
+
+/* 詳細の「＋」追加タイル：中央配置（display:block を上書き） */
+.tile-thumb--add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--kr-border);
+  background-color: #fafafa;
+  color: var(--kr-muted);
+  transition:
+    border-color 150ms,
+    background-color 150ms,
+    color 150ms;
+}
+
+.group:hover .tile-thumb--add {
+  border-color: color-mix(in srgb, var(--kr-navy) 40%, transparent);
+  background-color: #f5f5f5;
+  color: var(--kr-navy);
+}
+
+.tile-thumb > img,
+.tile-thumb img {
+  object-fit: cover;
+}
+
+/* 未クロップ在庫など：全体が見える（letterbox） */
+.tile-thumb--contain {
+  background-color: #f5f5f5;
+}
+
+.tile-thumb--contain > img,
+.tile-thumb--contain img {
+  object-fit: contain;
+}
+
+.group:hover .tile-thumb img {
+  transform: scale(1.03);
+}
+
+.tile-thumb img {
+  transition: transform 300ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile-thumb img {
+    transition: none;
+  }
+
+  .group:hover .tile-thumb img {
+    transform: none;
+  }
+}
+
+/*
+ * トップ／検索／フォロー／いいね等の3列タイル。
+ * ページ余白(8px)を打ち消し、外縁もタイル間と同じ --kr-tile-gap にする。
+ */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--kr-tile-gap);
+  margin-inline: calc(-1 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+  width: calc(100% + 2 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+}
+
+@media (min-width: 768px) {
+  .tile-grid {
+    margin-inline: 0;
+    width: 100%;
+  }
+}
+
+/* タイトルが1つ以上あるとき：行だけキャプション用に空ける */
+.tile-grid--meta {
+  row-gap: var(--kr-tile-row-gap);
+}
+
+.tile-caption {
+  display: block;
+  margin-top: var(--kr-tile-caption-gap);
+  padding-inline: var(--kr-tile-caption-pad-x);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: var(--kr-text);
+}
+
+.tile-caption-row {
+  display: flex;
+  margin-top: var(--kr-tile-caption-gap);
+  min-width: 0;
+  align-items: center;
+  gap: 0.25rem;
+  padding-inline: var(--kr-tile-caption-pad-x);
+  font-size: 0.75rem;
+  line-height: 1.25;
+  color: var(--kr-text);
+}
+
+.group:hover .tile-caption,
+.group:hover .tile-caption-row {
+  color: var(--kr-link);
+}
+
+/* 横スクロール3列相当レール */
+.tile-rail {
+  display: flex;
+  width: calc(100% + 2 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+  margin-inline: calc(-1 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+  gap: var(--kr-tile-gap);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tile-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.tile-rail > * {
+  flex: 0 0 calc((100% - 2 * var(--kr-tile-gap)) / 3);
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .tile-rail {
+    margin-inline: 0;
+    width: 100%;
+  }
+}
+
+/*
+ * 詳細内 3 列タイル。
+ * 列ギャップ・外縁は一覧と同じ。タイトルが無いときは行間も同値（詰める）。
+ */
+.detail-tile-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--kr-tile-gap);
+}
+
+.detail-tile-grid--meta {
+  row-gap: var(--kr-tile-row-gap);
+}
+
+.detail-tile-grid--content {
+  width: calc(100% + 2 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+  margin-inline: calc(-1 * (var(--kr-page-pad-x) - var(--kr-tile-gap)));
+}
+
+@media (min-width: 768px) {
+  .detail-tile-grid--content {
+    margin-inline: 0;
+    width: 100%;
+  }
+}
+
+/* 詳細ページ：タイルは端寄せ、テキストはヘッダーと揃えた余白 */
+.detail-inset {
+  padding-inline: var(--kr-page-pad-x);
+}
+
+@media (min-width: 768px) {
+  .detail-inset {
+    padding-inline: 0;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0.72;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0.15);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.page-enter {
+  animation: page-enter 220ms ease-out;
+}
+
+.tile-focus {
+  position: relative;
+  z-index: 1;
+}
+
+/* スティッキーヘッダー下でもタイル中央復帰が食い込まないように */
+[id^="tile-"] {
+  scroll-margin-block: 5rem;
+}
+
+.tile-focus::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 2px var(--kr-navy);
+  pointer-events: none;
+  z-index: 2;
+  animation: tile-focus-fade 1.8s ease-out forwards;
+}
+
+@keyframes tile-focus-fade {
+  0%,
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+
+  .animate-pulse {
+    animation: none;
+  }
+
+  .tile-focus::after {
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
+/* アイテム編集：お気に入り度レンジ */
+.kr-fav-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.kr-fav-range:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--kr-navy) 35%, transparent);
+  outline-offset: 2px;
+  border-radius: 999px;
+}
+
+.kr-fav-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--kr-navy) 18%, var(--kr-border));
+}
+
+.kr-fav-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border-radius: 999px;
+  border: 2px solid var(--kr-navy);
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+}
+
+.kr-fav-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--kr-navy) 18%, var(--kr-border));
+}
+
+.kr-fav-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid var(--kr-navy);
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+}
+

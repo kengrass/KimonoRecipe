@@ -1,0 +1,11 @@
+_archive/
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+*.pem
+.DS_Store
+frontend/node_modules/
+frontend/.next/
+.tools/

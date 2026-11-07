@@ -1,0 +1,178 @@
+{
+  "id": "ISSIeSA",
+  "title": "シルクウール着物 横段ブルーグレー",
+  "description": "",
+  "category": "単衣",
+  "color_tone": "青系",
+  "my_categories": [
+    "今シーズン"
+  ],
+  "images": [
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/ebba13f09fcba93f0ec2813a1e139a51d50c3562.jpeg?20211113171938",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/bb5534affc00e3c961cb74993a565cfc462e62b7.jpeg?20211113171936",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/486d086651c988a8a758d7b9cf97abc09dea574a.jpeg?20211113180004",
+    "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/525cb57286ad89aabd22fb1e1800dd4ea36c819f.jpeg?20211113180006"
+  ],
+  "user": {
+    "id": "FL6QQa",
+    "name": "デモ運営",
+    "profile_url": "/m/FL6QQa"
+  },
+  "posted_at": "2016-04-29T16:04:00+09:00",
+  "tags": [],
+  "like_count": 0,
+  "gender": "men",
+  "used_in_coordinates": [
+    {
+      "id": "FgNzIyU",
+      "title": "ルミロックコーデ",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/d67111f9bd916c91cc0263abf6245bd9b91c32c0.jpg?20211113181453",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2016-04-29T15:45:00+09:00",
+      "tags": [],
+      "detail_url": "/c/FgNzIyU",
+      "gender": "men",
+      "obi_knot": "貝の口",
+      "seasons": [
+        "秋"
+      ]
+    },
+    {
+      "id": "F1hWWVg",
+      "title": "着物を学びに日本橋へ",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c53202487f351bb6b2d52916bf59b4f0e3e767e6.jpeg?20211113212241",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2016-04-29T21:22:41+09:00",
+      "tags": [],
+      "detail_url": "/c/F1hWWVg",
+      "gender": "men",
+      "obi_knot": "貝の口",
+      "seasons": [
+        "夏"
+      ]
+    },
+    {
+      "id": "NERyiXk",
+      "title": "利用コーデ 3",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/c5762aa4a933c073908e7ce8e55707e71c8ddf4c.jpeg?20220111105328",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2022-01-11T10:53:28+09:00",
+      "tags": [],
+      "detail_url": "/c/NERyiXk",
+      "gender": "men",
+      "obi_knot": "貝の口",
+      "seasons": [
+        "冬"
+      ]
+    },
+    {
+      "id": "dZYmGSA",
+      "title": "利用コーデ 4",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/8e24aa4190132dc274d481f4d569b3fb2d403347.jpeg?20220110000719",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2022-01-10T00:07:19+09:00",
+      "tags": [],
+      "detail_url": "/c/dZYmGSA",
+      "gender": "men",
+      "obi_knot": "貝の口",
+      "seasons": [
+        "夏"
+      ]
+    }
+  ],
+  "related_items": [
+    {
+      "id": "ESkIUAM",
+      "title": "関連アイテム 1",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/b96f0998f3f457202bee856437b1fe5b32990acd.jpeg?20211113183123",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2016-04-29T18:31:23+09:00",
+      "tags": [],
+      "detail_url": "/i/ESkIUAM",
+      "gender": "men",
+      "category": "単衣",
+      "seasons": [
+        "秋"
+      ]
+    },
+    {
+      "id": "I5MyhEc",
+      "title": "関連アイテム 2",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/bb592ad06f8fde2de787b624eeca7d91ed781798.jpeg?20211113180006",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2016-04-29T18:00:06+09:00",
+      "tags": [],
+      "detail_url": "/i/I5MyhEc",
+      "gender": "men",
+      "category": "単衣",
+      "seasons": [
+        "冬"
+      ]
+    },
+    {
+      "id": "WEMIYDA",
+      "title": "関連アイテム 3",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/b4d87e77bf76ac1944e59fe00d97f830b5dca834.jpeg?20240318172155",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2024-03-18T17:21:55+09:00",
+      "tags": [],
+      "detail_url": "/i/WEMIYDA",
+      "gender": "men",
+      "category": "単衣",
+      "seasons": [
+        "冬"
+      ]
+    },
+    {
+      "id": "FZOYRWI",
+      "title": "関連アイテム 4",
+      "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square/e2ed3c779e0a12c2b4bb9f3d84f7c6f09b707db1.jpeg?20221102150442",
+      "user": {
+        "id": "FL6QQa",
+        "name": "デモ運営",
+        "profile_url": "/m/FL6QQa"
+      },
+      "posted_at": "2022-11-02T15:04:42+09:00",
+      "tags": [],
+      "detail_url": "/i/FZOYRWI",
+      "gender": "men",
+      "category": "単衣",
+      "seasons": [
+        "夏"
+      ]
+    }
+  ],
+  "og": {
+    "title": "シルクウール着物 横段ブルーグレー | きものレシピ",
+    "description": "単衣",
+    "image_url": "https://d2z0ysf6sthedw.cloudfront.net/_b/created/square_l/ebba13f09fcba93f0ec2813a1e139a51d50c3562.jpeg?20211113171938"
+  }
+}

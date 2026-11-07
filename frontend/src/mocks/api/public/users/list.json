@@ -1,0 +1,31 @@
+{
+  "data": [
+    {
+      "id": "FL6QQa",
+      "name": "デモ運営",
+      "profile_url": "/m/FL6QQa",
+      "avatar_url": null,
+      "bio": "モック用の運営アカウントです。"
+    },
+    {
+      "id": "lRTLf6",
+      "name": "デモ太郎",
+      "profile_url": "/m/lRTLf6",
+      "avatar_url": null,
+      "bio": "モック用の投稿者です。"
+    },
+    {
+      "id": "6ohruL",
+      "name": "デモ花子",
+      "profile_url": "/m/demo-hanako",
+      "avatar_url": null,
+      "bio": "モック用の投稿者です。"
+    }
+  ],
+  "meta": {
+    "page": 1,
+    "per_page": 12,
+    "total": 3,
+    "total_pages": 1
+  }
+}

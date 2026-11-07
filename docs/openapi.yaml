@@ -1,0 +1,904 @@
+openapi: 3.1.0
+info:
+  title: KimonoRecipe Read API
+  version: "1.0.0"
+  description: |
+    きものレシピ Next UI が期待する **読み取り GET** 契約（機械可読版・昇格途上）。
+
+    - **一覧の正（人が読む）:** `API_CATALOG.md` / `API_CONTRACT.md`
+    - **書き込み・認証の手続き見本:** `spike/docs/API.md`
+    - **見本 JSON:** `frontend/src/mocks/api/`
+    - **渡すセット:** `docs/HANDOFF.md` ・ 新DB: `docs/NEW_DB.md`
+    - 本ファイルは読み取り中心の副本。admin／ads／usage／書き込みの正は API_CATALOG.md と spike/docs/API.md。
+
+    三つの口は混ぜない: `/api/public` ・ `/api/owner` ・ `/api/me`。
+  contact:
+    name: KimonoRecipe delivery docs
+
+servers:
+  - url: https://www.kimonorecipe.com
+    description: 本番オリジン（例）。Next は NEXT_PUBLIC_API_BASE_URL で指定
+
+tags:
+  - name: public
+    description: 誰でも。公開コンテンツのみ。キャッシュ向き
+  - name: owner
+    description: 投稿の所有者のみ（他人は 401/403）
+  - name: me
+    description: ログイン本人のコレクション（いいね／フォロー投稿）
+
+paths:
+  /api/public/coordinates:
+    get:
+      tags: [public]
+      summary: 公開コーデ一覧・検索・他人プロフィール
+      operationId: listPublicCoordinates
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/tag"
+        - $ref: "#/components/parameters/g"
+        - $ref: "#/components/parameters/season"
+        - $ref: "#/components/parameters/obi"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/include_facets"
+      responses:
+        "200":
+          description: |
+            公開コーデのみ。検索では meta 必須・1ページ分のみ。
+            トップ先頭セットは meta 省略可。`scope=favorite|following` は禁止。
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicCoordinateListResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+  /api/public/items:
+    get:
+      tags: [public]
+      summary: 公開アイテム一覧・検索・他人プロフィール
+      operationId: listPublicItems
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/tag"
+        - $ref: "#/components/parameters/g"
+        - $ref: "#/components/parameters/season"
+        - $ref: "#/components/parameters/cat"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+        - $ref: "#/components/parameters/user"
+        - $ref: "#/components/parameters/include_facets"
+      responses:
+        "200":
+          description: 公開アイテムのみ。検索は meta 必須。
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicItemListResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+
+  /api/public/coordinates/{id}:
+    get:
+      tags: [public]
+      summary: 公開コーデ詳細
+      operationId: getPublicCoordinate
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          description: 公開のみ。関連・構成を含める（全件一覧を引かせない）
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicCoordinateDetail"
+        "404":
+          $ref: "#/components/responses/NotFoundPublic"
+
+  /api/public/items/{id}:
+    get:
+      tags: [public]
+      summary: 公開アイテム詳細
+      operationId: getPublicItem
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicItemDetail"
+        "404":
+          $ref: "#/components/responses/NotFoundPublic"
+
+  /api/public/coordinates/{id}/neighbors:
+    get:
+      tags: [public]
+      summary: コーデ詳細の前後ナビ（短い窓）
+      operationId: getPublicCoordinateNeighbors
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          description: 当該 ID を含む短いウィンドウ。全件禁止
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicListDataOnly"
+        "404":
+          $ref: "#/components/responses/NotFoundPublic"
+
+  /api/public/items/{id}/neighbors:
+    get:
+      tags: [public]
+      summary: アイテム詳細の前後ナビ（短い窓）
+      operationId: getPublicItemNeighbors
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicListDataOnly"
+        "404":
+          $ref: "#/components/responses/NotFoundPublic"
+
+  /api/public/users:
+    get:
+      tags: [public]
+      summary: 公開ユーザー一覧・検索
+      operationId: listPublicUsers
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUserListResponse"
+
+  /api/public/users/{id}:
+    get:
+      tags: [public]
+      summary: 公開プロフィール（名刺）
+      operationId: getPublicUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ユーザー ID
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PublicUserProfile"
+        "404":
+          description: ユーザーが無い
+
+  /api/owner/coordinates:
+    get:
+      tags: [owner]
+      summary: 自分のコーデ一覧（非公開含む）
+      operationId: listOwnerCoordinates
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/g"
+        - $ref: "#/components/parameters/season"
+        - $ref: "#/components/parameters/obi"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+        - $ref: "#/components/parameters/temp"
+        - $ref: "#/components/parameters/sort"
+        - $ref: "#/components/parameters/status"
+        - $ref: "#/components/parameters/include_facets"
+      responses:
+        "200":
+          description: owner 一覧。include_facets=1 時は facets / visibility_by_id
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OwnerCoordinateListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/owner/items:
+    get:
+      tags: [owner]
+      summary: 自分のアイテム一覧（非公開含む）
+      operationId: listOwnerItems
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/q"
+        - $ref: "#/components/parameters/g"
+        - $ref: "#/components/parameters/season"
+        - $ref: "#/components/parameters/cat"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+        - $ref: "#/components/parameters/declutter"
+        - $ref: "#/components/parameters/sort"
+        - $ref: "#/components/parameters/status"
+        - $ref: "#/components/parameters/include_facets"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OwnerItemListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/owner/coordinates/{id}:
+    get:
+      tags: [owner]
+      summary: 本人用コーデ詳細フル
+      description: |
+        公開詳細と同型の本文を重複して持ち、所有者専用を載せる（差分パッチではない）。
+        未ログイン 401、非所有者 403。フロントは本人時これを優先し、だめなら公開へフォールバック。
+      operationId: getOwnerCoordinate
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OwnerCoordinateDetail"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/owner/items/{id}:
+    get:
+      tags: [owner]
+      summary: 本人用アイテム詳細フル
+      operationId: getOwnerItem
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/contentId"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OwnerItemDetail"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "403":
+          $ref: "#/components/responses/Forbidden"
+
+  /api/me/favorites:
+    get:
+      tags: [me]
+      summary: いいねした投稿
+      operationId: listMeFavorites
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/kind"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /api/me/following/posts:
+    get:
+      tags: [me]
+      summary: フォロー中の投稿
+      operationId: listMeFollowingPosts
+      security:
+        - sessionCookie: []
+      parameters:
+        - $ref: "#/components/parameters/kind"
+        - $ref: "#/components/parameters/page"
+        - $ref: "#/components/parameters/per_page"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MeListResponse"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+components:
+  securitySchemes:
+    sessionCookie:
+      type: apiKey
+      in: cookie
+      name: laravel_session
+      description: 既存セッション／Cookie（同一ドメイン前提。名前は実装依存）
+
+  parameters:
+    contentId:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: コンテンツ ID
+    q:
+      name: q
+      in: query
+      schema:
+        type: string
+      description: フリーテキスト（title / user.name / tags）
+    tag:
+      name: tag
+      in: query
+      schema:
+        type: string
+      description: タグ完全一致
+    g:
+      name: g
+      in: query
+      schema:
+        $ref: "#/components/schemas/ContentGender"
+      description: 性別フィルタ
+    season:
+      name: season
+      in: query
+      schema:
+        $ref: "#/components/schemas/ContentSeason"
+    cat:
+      name: cat
+      in: query
+      schema:
+        type: string
+      description: システムカテゴリ（items のみ）
+    obi:
+      name: obi
+      in: query
+      schema:
+        type: string
+      description: 帯結び（coordinates のみ）
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    per_page:
+      name: per_page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 12
+      description: 省略時 12
+    user:
+      name: user
+      in: query
+      schema:
+        type: string
+      description: 投稿者 ID（他人プロフィール一覧。公開のみ）
+    include_facets:
+      name: include_facets
+      in: query
+      schema:
+        type: string
+        enum: ["1"]
+      description: チップ用 facets を付ける（user= 公開一覧／owner 一覧）
+    temp:
+      name: temp
+      in: query
+      schema:
+        type: string
+        enum: ["1"]
+      description: 仮コーデ（owner コーデ）
+    declutter:
+      name: declutter
+      in: query
+      schema:
+        type: string
+        enum: ["1"]
+      description: 断捨離候補（owner アイテム）
+    sort:
+      name: sort
+      in: query
+      schema:
+        type: string
+      description: 並べ替え（語彙は mypage-state / LIST_QUERY）
+    status:
+      name: status
+      in: query
+      schema:
+        $ref: "#/components/schemas/ContentVisibility"
+      description: 公開状態（owner のみ）
+    kind:
+      name: kind
+      in: query
+      required: true
+      schema:
+        type: string
+        enum: [coordinates, items]
+
+  responses:
+    BadRequest:
+      description: 不正なクエリ
+    NotFoundPublic:
+      description: 非公開または存在しない（存在を漏らす 403 は避ける）
+    Unauthorized:
+      description: 未ログイン
+    Forbidden:
+      description: 非所有者など権限なし
+
+  schemas:
+    ContentGender:
+      type: string
+      enum: [women, men, kids]
+    ContentSeason:
+      type: string
+      enum: [春, 夏, 秋, 冬]
+    ContentVisibility:
+      type: string
+      enum: [public, private]
+
+    PublicUser:
+      type: object
+      required: [id, name, profile_url]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profile_url:
+          type: string
+          description: 相対パス推奨（例 /m/FL6QQa）
+
+    PublicUserProfile:
+      type: object
+      required: [id, name, profile_url]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profile_url:
+          type: string
+        avatar_url:
+          type: ["string", "null"]
+        bio:
+          type: string
+        profile_links:
+          type: array
+          items:
+            type: object
+            required: [label, href]
+            properties:
+              label:
+                type: string
+              href:
+                type: string
+        sns:
+          type: array
+          items:
+            type: object
+            required: [kind, href, label]
+            properties:
+              kind:
+                type: string
+                enum: [x, facebook, instagram, youtube]
+              href:
+                type: string
+              label:
+                type: string
+        public_size:
+          type: array
+          items:
+            type: object
+            required: [label, value]
+            properties:
+              label:
+                type: string
+              value:
+                type: string
+
+    PublicUserListItem:
+      type: object
+      required: [id, name, profile_url]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profile_url:
+          type: string
+        avatar_url:
+          type: ["string", "null"]
+        bio:
+          type: string
+
+    PublicUserListResponse:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicUserListItem"
+        meta:
+          $ref: "#/components/schemas/ListPageMeta"
+
+    Og:
+      type: object
+      required: [title, description, image_url]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        image_url:
+          type: string
+
+    PublicListItem:
+      type: object
+      required:
+        [id, title, image_url, user, posted_at, tags, seasons, detail_url, gender]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+          description: 空文字可
+        image_url:
+          type: string
+        user:
+          $ref: "#/components/schemas/PublicUser"
+        posted_at:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        seasons:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContentSeason"
+        detail_url:
+          type: string
+        gender:
+          $ref: "#/components/schemas/ContentGender"
+        category:
+          type: string
+          description: アイテム一覧で必須。コーデ一覧では載せない
+        obi_knot:
+          type: ["string", "null"]
+          description: コーデ一覧で必須。アイテム一覧では載せない
+
+    ListPageMeta:
+      type: object
+      required: [page, per_page, total, total_pages]
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total:
+          type: integer
+        total_pages:
+          type: integer
+
+    FacetNameCount:
+      type: object
+      required: [name, count]
+      properties:
+        name:
+          type: string
+        count:
+          type: integer
+
+    ListFacets:
+      type: object
+      description: include_facets=1 のとき。件数は現在の一覧条件に整合
+      properties:
+        season_counts:
+          type: object
+          additionalProperties:
+            type: integer
+        item_categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/FacetNameCount"
+        item_declutter_categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/FacetNameCount"
+        coordinate_count:
+          type: integer
+        item_count:
+          type: integer
+        declutter_count:
+          type: integer
+
+    PublicCoordinateListResponse:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        meta:
+          $ref: "#/components/schemas/ListPageMeta"
+        facets:
+          $ref: "#/components/schemas/ListFacets"
+
+    PublicItemListResponse:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        meta:
+          $ref: "#/components/schemas/ListPageMeta"
+        facets:
+          $ref: "#/components/schemas/ListFacets"
+
+    PublicListDataOnly:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+
+    OwnerCoordinateListResponse:
+      allOf:
+        - $ref: "#/components/schemas/PublicCoordinateListResponse"
+        - type: object
+          properties:
+            visibility_by_id:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/ContentVisibility"
+              description: 当該 data 内 id → public|private。公開 API には載せない
+
+    OwnerItemListResponse:
+      allOf:
+        - $ref: "#/components/schemas/PublicItemListResponse"
+        - type: object
+          properties:
+            visibility_by_id:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/ContentVisibility"
+
+    MeListResponse:
+      type: object
+      required: [data, meta]
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        meta:
+          $ref: "#/components/schemas/ListPageMeta"
+
+    CoordinateItemRef:
+      type: object
+      required: [id, title, category, image_url, detail_url]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        category:
+          type: string
+        image_url:
+          type: string
+        detail_url:
+          type: string
+
+    PublicCoordinateDetail:
+      type: object
+      required:
+        [
+          id,
+          title,
+          description,
+          images,
+          user,
+          posted_at,
+          tags,
+          like_count,
+          gender,
+          obi_knot,
+          items,
+          related_coordinates,
+          og,
+        ]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+          description: 空文字可
+        description:
+          type: string
+        images:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        user:
+          $ref: "#/components/schemas/PublicUser"
+        posted_at:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        like_count:
+          type: integer
+        gender:
+          $ref: "#/components/schemas/ContentGender"
+        obi_knot:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/CoordinateItemRef"
+        related_coordinates:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        og:
+          $ref: "#/components/schemas/Og"
+
+    PublicItemDetail:
+      type: object
+      required:
+        [
+          id,
+          title,
+          description,
+          category,
+          images,
+          user,
+          posted_at,
+          tags,
+          like_count,
+          gender,
+          used_in_coordinates,
+          related_items,
+          og,
+        ]
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        images:
+          type: array
+          minItems: 1
+          items:
+            type: string
+        user:
+          $ref: "#/components/schemas/PublicUser"
+        posted_at:
+          type: string
+          format: date-time
+        tags:
+          type: array
+          items:
+            type: string
+        like_count:
+          type: integer
+        gender:
+          $ref: "#/components/schemas/ContentGender"
+        used_in_coordinates:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        related_items:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicListItem"
+        color_tone:
+          type: ["string", "null"]
+          description: UI廃止（互換で残可）。新規入力・詳細表示なし
+        og:
+          $ref: "#/components/schemas/Og"
+
+    OwnerCoordinateDetail:
+      allOf:
+        - $ref: "#/components/schemas/PublicCoordinateDetail"
+        - type: object
+          required:
+            [
+              edit_url,
+              add_coordinate_item_url,
+              private_note,
+              owner_status,
+              updated_at,
+              view_count,
+            ]
+          properties:
+            edit_url:
+              type: string
+            add_coordinate_item_url:
+              type: string
+            private_note:
+              type: string
+            owner_status:
+              $ref: "#/components/schemas/ContentVisibility"
+            updated_at:
+              type: string
+              format: date-time
+            view_count:
+              type: integer
+            worn_on:
+              type: ["string", "null"]
+              format: date
+
+    OwnerItemDetail:
+      allOf:
+        - $ref: "#/components/schemas/PublicItemDetail"
+        - type: object
+          required:
+            [
+              edit_url,
+              add_used_coordinate_url,
+              private_note,
+              owner_status,
+              updated_at,
+              view_count,
+            ]
+          properties:
+            edit_url:
+              type: string
+            add_used_coordinate_url:
+              type: string
+            private_note:
+              type: string
+            owner_status:
+              $ref: "#/components/schemas/ContentVisibility"
+            updated_at:
+              type: string
+              format: date-time
+            view_count:
+              type: integer
+            worn_on:
+              type: ["string", "null"]
+              format: date
+            favorite_rank:
+              type: ["integer", "null"]
+              minimum: 1
+              maximum: 5
+            declutter_candidate:
+              type: boolean
