@@ -24,8 +24,11 @@ import {
 import {
   SESSION_COOKIE,
   clearSessionCookie,
+  createSession,
   destroySession,
+  destroySessionsForUser,
   requireUser,
+  setSessionCookie,
 } from "../lib/session.js";
 import {
   confirmEmailChange,
@@ -34,7 +37,7 @@ import {
   toMeAccount,
   toPublicProfileExtras,
   updateAccountProfile,
-  updatePassword,
+  updatePasswordWithCurrent,
 } from "../lib/account.js";
 import {
   ProfileNameError,
@@ -79,6 +82,7 @@ const emailConfirmSchema = z.object({
 });
 
 const passwordSchema = z.object({
+  current_password: z.string().min(1).max(LIMITS.password),
   password: z.string().min(6).max(LIMITS.password),
 });
 
@@ -181,6 +185,10 @@ meRoutes.post("/email/confirm", async (c) => {
   }
   try {
     confirmEmailChange(user.id, parsed.data.email, parsed.data.code);
+    // 他端末のセッションを無効化し、この端末だけ新セッション
+    destroySessionsForUser(user.id);
+    const token = createSession(user.id);
+    setSessionCookie(c, token);
     const row = getAccountUser(user.id);
     return c.json({ user: row ? toMeAccount(row) : null });
   } catch (e) {
@@ -197,7 +205,7 @@ meRoutes.post("/email/confirm", async (c) => {
   }
 });
 
-/** POST /api/me/password */
+/** POST /api/me/password — 現行パスワード必須。他セッション無効化 */
 meRoutes.post("/password", async (c) => {
   const user = requireUser(c);
   if (user instanceof Response) return user;
@@ -206,16 +214,25 @@ meRoutes.post("/password", async (c) => {
     return c.json({ error: "invalid_body" }, 400);
   }
   try {
-    updatePassword(user.id, parsed.data.password);
+    updatePasswordWithCurrent(
+      user.id,
+      parsed.data.current_password,
+      parsed.data.password,
+    );
+    destroySessionsForUser(user.id);
+    const token = createSession(user.id);
+    setSessionCookie(c, token);
     return c.json({ ok: true });
   } catch (e) {
     if (e instanceof Error && e.message === "password_too_short") {
       return c.json({ error: "password_too_short" }, 400);
     }
+    if (e instanceof Error && e.message === "current_password_invalid") {
+      return c.json({ error: "current_password_invalid" }, 400);
+    }
     throw e;
   }
 });
-
 /** DELETE /api/me — 退会（本人アカウント削除） */
 meRoutes.delete("/", (c) => {
   const user = requireUser(c);

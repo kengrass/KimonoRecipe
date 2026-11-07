@@ -31,6 +31,16 @@ export const USE_SPIKE_API =
 export const USE_MOCK_API = !API_BASE_URL && !USE_SPIKE_API;
 
 /**
+ * ステージ／本番の安全弁。`KR_REQUIRE_LIVE_API=1` のときモック起動を拒否。
+ * @see docs/OPS_SECURITY.md §1
+ */
+if (process.env.KR_REQUIRE_LIVE_API === "1" && USE_MOCK_API) {
+  throw new Error(
+    "KR_REQUIRE_LIVE_API=1 ですが API／spike が未設定です。NEXT_PUBLIC_API_BASE_URL か spike を設定してください。",
+  );
+}
+
+/**
  * 琥珀色のモック認証バー等。モック時のみ表示。
  * 実 API / spike 接続後は出さない。
  */

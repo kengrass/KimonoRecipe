@@ -8,13 +8,24 @@ const SESSION_DAYS = 30;
 
 type UserRow = { id: string; email: string; name: string; is_admin: number };
 
+function sessionExpiresAt(from = new Date()): string {
+  const expires = new Date(from);
+  expires.setDate(expires.getDate() + SESSION_DAYS);
+  return expires.toISOString();
+}
+
+/** HTTPS または SPIKE_COOKIE_SECURE=1 のとき Secure を付ける */
+function cookieSecure(c: Context): boolean {
+  if (process.env.SPIKE_COOKIE_SECURE === "1") return true;
+  const proto = c.req.header("x-forwarded-proto") ?? new URL(c.req.url).protocol;
+  return proto === "https" || proto === "https:";
+}
+
 export function createSession(userId: string): string {
   const token = newSessionToken();
-  const expires = new Date();
-  expires.setDate(expires.getDate() + SESSION_DAYS);
   db.prepare(
     `INSERT INTO sessions (token, user_id, expires_at) VALUES (?, ?, ?)`,
-  ).run(token, userId, expires.toISOString());
+  ).run(token, userId, sessionExpiresAt());
   return token;
 }
 
@@ -23,8 +34,14 @@ export function destroySession(token: string | undefined) {
   db.prepare(`DELETE FROM sessions WHERE token = ?`).run(token);
 }
 
+/** パスワード／メール変更後: 当該ユーザーの全セッションを落とす */
+export function destroySessionsForUser(userId: string) {
+  db.prepare(`DELETE FROM sessions WHERE user_id = ?`).run(userId);
+}
+
 export function userFromToken(token: string | undefined): UserRow | null {
   if (!token) return null;
+  const now = new Date();
   const row = db
     .prepare(
       `SELECT u.id, u.email, u.name, COALESCE(u.is_admin, 0) AS is_admin
@@ -32,11 +49,16 @@ export function userFromToken(token: string | undefined): UserRow | null {
        JOIN users u ON u.id = s.user_id
        WHERE s.token = ? AND s.expires_at > ?`,
     )
-    .get(token, new Date().toISOString()) as UserRow | undefined;
+    .get(token, now.toISOString()) as UserRow | undefined;
   if (!row) return null;
+  // 30日スライド（OPS_SECURITY §5.2）
+  db.prepare(`UPDATE sessions SET expires_at = ? WHERE token = ?`).run(
+    sessionExpiresAt(now),
+    token,
+  );
   // 管理の「最終利用」用。本番でも同趣旨のタッチで足りる。
   db.prepare(`UPDATE users SET last_active_at = ? WHERE id = ?`).run(
-    new Date().toISOString(),
+    now.toISOString(),
     row.id,
   );
   return row;
@@ -48,6 +70,7 @@ export function setSessionCookie(c: Context, token: string) {
     sameSite: "Lax",
     path: "/",
     maxAge: SESSION_DAYS * 24 * 60 * 60,
+    secure: cookieSecure(c),
   });
 }
 

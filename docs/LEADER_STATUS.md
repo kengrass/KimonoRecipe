@@ -57,6 +57,7 @@ Myフォルダ／Myカテゴリは **新系に含めない**。
 | P1 | 本資料・提供モデルの維持 | 進行中 |
 | P2 | OpenAPI へ書き込み／管理口を昇格 | **後続可**。一覧正は CATALOG、手続きは spike API.md、OpenAPI は読み取り副本（階層確定済み） |
 | P2 | 認可境界の自動確認 | **着手済** — `spike/scripts/verify-auth.mjs`（spike 起動中に実行） |
+| P2 | 署名URL／必須env／セッション（6〜8の今できる分） | **方針＋spike 反映済**（画像§5.2b、KR_REQUIRE_LIVE_API、スライド／Secure／パス変更無効化）。S3・実メールは棚待ち |
 | P3 | `/admin` アラート実装 | **引き渡し外**（[`ADMIN_ALERTS.md`](./ADMIN_ALERTS.md)） |
 
 ### B. エンジニア側

@@ -23,14 +23,17 @@ Laravel 本体・EC2 の詳細は既存サイト側。企画側ドキュメン�
 
 | 変数 | 必須? | 意味 |
 |------|-------|------|
-| `NEXT_PUBLIC_API_BASE_URL` | 正式 API 接続時 | 正式棚の API オリジン |
+| `NEXT_PUBLIC_API_BASE_URL` | **本番公開で必須** | 正式棚の API オリジン。未設定かつ spike も無し → モック（本番禁止） |
+| `NEXT_PUBLIC_SITE_URL` | **本番公開で必須** | canonical / OGP / sitemap / robots。未設定時は Laravel オリジンに落ちるため、並走・本番では必ず設定 |
+| `KR_REQUIRE_LIVE_API` | 本番ビルド推奨 | `1` のときモック起動を拒否（`config.ts`）。ステージ／本番の安全弁 |
 | `NEXT_PUBLIC_USE_SPIKE_API` | spike 接続時 | `1` で spike 利用（[`frontend/.env.spike.example`](../frontend/.env.spike.example)） |
 | `SPIKE_API_ORIGIN` | spike 接続時 | 例: `http://127.0.0.1:4010`。これだけでも spike 有効になり得る |
-| `NEXT_PUBLIC_SITE_URL` | 推奨 | canonical / OGP / sitemap / robots のサイトオリジン。未設定時は `https://www.kimonorecipe.com` |
+| `SPIKE_COOKIE_SECURE` | spike HTTPS 時 | `1` でセッション Cookie に `Secure`（または `X-Forwarded-Proto: https`） |
 | `BASIC_AUTH_USER` | 並走時 | プレビュー保護。**PASSWORD と両方あるときだけ** Basic 認証が有効 |
 | `BASIC_AUTH_PASSWORD` | 並走時 | 同上。公開切替後は **両方とも外す** |
 
-`USE_MOCK_API` は **env ではない**（`config.ts` の導出）。`NEXT_PUBLIC_API_BASE_URL` も spike も無いときだけモック。
+`USE_MOCK_API` は **env ではない**（`config.ts` の導出）。`NEXT_PUBLIC_API_BASE_URL` も spike も無いときだけモック。  
+**本番公開チェック:** `KR_REQUIRE_LIVE_API=1` ＋ `NEXT_PUBLIC_API_BASE_URL` ＋ `NEXT_PUBLIC_SITE_URL`。モック Cookie を本人判定に使わない。
 
 実装: `frontend/src/lib/config.ts` ・ `frontend/src/lib/seo.ts` ・ `frontend/src/middleware.ts`
 
@@ -111,10 +114,22 @@ Laravel API を Next に繋ぐ／本番相当で公開する前に、人手で�
 **方針（決定）:** ログイン維持は **30日・スライド延長**（操作のたびに期限を延ばす）。  
 「ログイン状態を保持」OFF や共有端末向けの短命セッションは、必要なら後から例外として足す。
 
+spike 見本（確定反映）: スライド延長・`HttpOnly`/`SameSite=Lax`・HTTPS 時 `Secure`・パスワード／メール確定後は他セッション無効化（当該端末は新セッション）。
+
 - [ ] セッション Cookie が `Secure` / `HttpOnly` / 適切な `SameSite`  
 - [ ] 有効期限が **30日スライド**（Laravel 側設定と一致）  
 - [ ] パスワード変更・メール変更後は既存セッションを無効化  
 - [ ] Next の `getServerViewerUserId` が **実セッション**を見る（モック Cookie ではない）  
+
+### 5.2b 画像配信（方針・決定）
+
+| 種別 | 方針 |
+|------|------|
+| **公開**投稿の画像 | 公開 URL（現行モックは CDN。正式棚は S3＋CloudFront 等） |
+| **非公開**／仮／未使用 | **所有者セッション必須**で配信。拒否は **404**（存在を漏らさない） |
+| 正式棚の非公開 | Cookie 付きプロキシでも **署名付き URL** でも可（協議）。spike 見本は `/media/...`＋セッション |
+
+モックの CDN 残しは表示検証用（`DO_NOT` §13）。本番の正は正式棚のメディア。
 
 ### 5.3 インフラ（既存サイト側・依頼）
 

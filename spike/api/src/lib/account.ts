@@ -224,6 +224,7 @@ export function confirmEmailChange(userId: string, email: string, code: string) 
          pending_email_expires_at = NULL
      WHERE id = ?`,
   ).run(row.pending_email, userId);
+  // セッション無効化は routes 側（Cookie 再発行とセット）
   return getUserById(userId)!;
 }
 
@@ -233,6 +234,18 @@ export function updatePassword(userId: string, newPassword: string) {
     hashPassword(newPassword),
     userId,
   );
+}
+
+/** 現行パスワード確認付き。成功時は呼び出し側で全セッション無効化すること */
+export function updatePasswordWithCurrent(
+  userId: string,
+  currentPassword: string,
+  newPassword: string,
+) {
+  if (!verifyUserPassword(userId, currentPassword)) {
+    throw new Error("current_password_invalid");
+  }
+  updatePassword(userId, newPassword);
 }
 
 export function verifyUserPassword(userId: string, password: string): boolean {

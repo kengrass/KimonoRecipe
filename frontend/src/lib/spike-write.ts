@@ -426,11 +426,17 @@ export async function spikeConfirmEmailChange(email: string, code: string) {
   return json!;
 }
 
-export async function spikeChangePassword(password: string) {
+export async function spikeChangePassword(
+  password: string,
+  currentPassword: string,
+) {
   const res = await spikeFetch("/api/me/password", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ password }),
+    body: JSON.stringify({
+      current_password: currentPassword,
+      password,
+    }),
   });
   if (!res.ok) {
     const json = (await res.json().catch(() => null)) as { error?: string } | null;

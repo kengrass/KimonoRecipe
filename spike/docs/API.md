@@ -66,9 +66,10 @@ Myフォルダ／Myカテゴリは扱わない。
 
 メール確定。
 
-### `POST /api/me/password` `{ "password" }`
+### `POST /api/me/password` `{ "current_password", "password" }`
 
-6文字以上。
+現行パスワード必須。新パスワードは6文字以上。  
+成功時: **他セッションを無効化**し、当該リクエストに新セッション Cookie を付与。
 
 ### `GET /api/me/favorites?kind=coordinates|items&page=&per_page=`
 
@@ -228,7 +229,9 @@ Myフォルダ／Myカテゴリは扱わない。
 
 ### `GET /media/...`
 
-処理済みファイルの配信。
+処理済みファイルの配信。  
+**公開投稿が参照していれば誰でも可。** 非公開／仮／未使用のみは所有者セッション必須（拒否は 404）。  
+正式棚では署名 URL でも可（方針: `docs/OPS_SECURITY.md` §5.2b）。
 
 ---
 

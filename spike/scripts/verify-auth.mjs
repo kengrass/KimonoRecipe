@@ -218,6 +218,43 @@ async function main() {
     );
   }
 
+  // --- パスワード変更: 現行必須・他セッション無効化 ---
+  {
+    const a = await login(DEMO);
+    const b = await login(DEMO);
+    check("同一ユーザーで2セッション取得", Boolean(a.cookie && b.cookie));
+
+    const bad = await req("/api/me/password", {
+      method: "POST",
+      cookie: a.cookie,
+      body: { current_password: "wrong-pass", password: "demo-pass" },
+    });
+    check(
+      "現行パスワード違い → 400 current_password_invalid",
+      bad.status === 400 && bad.json?.error === "current_password_invalid",
+      `status=${bad.status} err=${bad.json?.error}`,
+    );
+
+    const ok = await req("/api/me/password", {
+      method: "POST",
+      cookie: a.cookie,
+      body: { current_password: "demo-pass", password: "demo-pass" },
+    });
+    check(
+      "パスワード変更（同じ値）→ 200",
+      ok.status === 200,
+      `got ${ok.status}`,
+    );
+
+    // Set-Cookie があれば a は新セッション。b の旧 Cookie は無効のはず
+    const bAfter = await req("/api/me", { cookie: b.cookie });
+    check(
+      "パスワード変更後、他セッションは 401",
+      bAfter.status === 401,
+      `got ${bAfter.status}`,
+    );
+  }
+
   const failed = results.filter((r) => !r.ok);
   console.log("");
   console.log(

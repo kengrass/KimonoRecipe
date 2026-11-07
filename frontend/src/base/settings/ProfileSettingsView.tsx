@@ -160,6 +160,7 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
     }
     return next;
   });
+  const [currentPassword, setCurrentPassword] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [savedEmail, setSavedEmail] = useState(initial.email);
@@ -668,6 +669,15 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
           </SettingsSection>
 
           <SettingsSection title="パスワード">
+            <Field label="現在のパスワード">
+              <TextInput
+                type="password"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                placeholder="現在のパスワード"
+                autoComplete="current-password"
+              />
+            </Field>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Field label="新しいパスワード">
                 <TextInput
@@ -690,6 +700,10 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
             </div>
             <EndPrimaryButton
               onClick={() => {
+                if (!currentPassword) {
+                  flash("現在のパスワードを入力してください");
+                  return;
+                }
                 if (!password || password.length < 6) {
                   flash("パスワードは6文字以上にしてください");
                   return;
@@ -704,12 +718,18 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
                 }
                 void (async () => {
                   try {
-                    await spikeChangePassword(password);
+                    await spikeChangePassword(password, currentPassword);
+                    setCurrentPassword("");
                     setPassword("");
                     setPasswordConfirm("");
                     flash("パスワードを変更しました");
-                  } catch {
-                    flash("変更に失敗しました");
+                  } catch (e) {
+                    const code = e instanceof Error ? e.message : "";
+                    flash(
+                      code === "current_password_invalid"
+                        ? "現在のパスワードが違います"
+                        : "変更に失敗しました",
+                    );
                   }
                 })();
               }}
@@ -717,7 +737,6 @@ export function ProfileSettingsView({ user, initial, entry }: Props) {
               保存
             </EndPrimaryButton>
           </SettingsSection>
-
           <div className="flex flex-wrap items-center justify-between gap-3 border-t border-kr-border pt-4">
             <SecondaryButton tone="danger" onClick={() => setWithdrawOpen(true)}>
               退会する

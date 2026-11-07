@@ -75,7 +75,7 @@ Internet → WAF → ALB (HTTPS)
               ├─ Next（静的／Node）
               └─ API（spike 同口）
                     └─ RDS（新DB）
-S3（画像マスター／表示用）← API が署名付き or 公開 URL 方針は協議
+S3（画像マスター／表示用）← 公開は公開 URL、非公開はセッション or 署名 URL（方針: OPS §5.2b）
 ```
 
 | 優先 | 理由 |
