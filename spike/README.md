@@ -66,6 +66,7 @@ npm run dev
 | 試作の割り切り | CSRF なし、SQLite 仮置き場、spike バー前提の疎通 |
 | 管理読み取り | `GET /api/admin/users`・`/users/:id`・`/stats`（ログイン必須・仮の運営者） |
 | 利用計測 | `POST /api/public/usage/pageview` → 日次 UU/PV。管理 stats の usage に反映。動線確認: `cd spike/scripts && npm i && node verify-pv.mjs`（Next+spike 起動中・他タブ注意） |
+| 認可境界 | `cd spike/scripts && node verify-auth.mjs`（spike 起動中。public／owner／me／admin） |
 
 ### スコープ外（この spike ではやらない）
 

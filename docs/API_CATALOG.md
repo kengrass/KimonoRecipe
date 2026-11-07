@@ -250,7 +250,9 @@ spike ではログイン済み＝仮の運営者。本番は admin ロール判�
 - [ ] `GET /api/me/following` と `following/posts` の両方
 - [ ] `GET /api/admin/stats` の KPI 形が契約どおり
 
-見本: `frontend/src/mocks/api/README.md` ・ spike
+見本: `frontend/src/mocks/api/README.md` ・ spike  
+
+認可の自動確認（spike）: `cd spike/scripts && node verify-auth.mjs`（API 起動中）
 
 ---
 
