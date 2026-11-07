@@ -22,11 +22,19 @@
 
 ## AI に渡すとき（例）
 
+**実装・起動:**
+
 > `docs/FOR_ENGINEERS.md` を正として意図を把握して。  
 > ローカルは `spike/README.md` と `frontend/` で起動確認まで。  
 > 詳細が要るときだけ `docs/NEW_DB.md` ・ `spike/docs/API.md` ・ `docs/DO_NOT.md` を読んで。  
 > Next UI のリデザイン、契約の独断変更、既存スパゲティの継承、spike＝本番扱いはしない。  
 > 正式棚に着手するなら `docs/FORMAL_SHELF_STARTER.md`（WAF・発注側アカウント前提）。
+
+**再レビュー（静的でも可）:**
+
+> `docs/REVIEW_BRIEF.md` に従い、現行 main をレビューして。  
+> 出力は表 A（提供スコープの残欠陥）と表 B（正式棚の残作業）だけ。  
+> 「このまま公開できるか」の総合判定は不要。
 
 ---
 
@@ -35,6 +43,7 @@
 | 用途 | 文書 |
 |------|------|
 | **人向け1枚** | [`FOR_ENGINEERS.md`](./FOR_ENGINEERS.md) |
+| **再レビュー採点軸** | [`REVIEW_BRIEF.md`](./REVIEW_BRIEF.md) |
 | 役割 | [`DELIVERY_MODEL.md`](./DELIVERY_MODEL.md) |
 | 新DB意図 | [`NEW_DB.md`](./NEW_DB.md) |
 | 移行の受け渡し | [`MIGRATION_INTAKE.md`](./MIGRATION_INTAKE.md) |

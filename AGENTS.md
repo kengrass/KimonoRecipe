@@ -4,6 +4,7 @@
 
 **人向け方針1枚:** [`docs/FOR_ENGINEERS.md`](./docs/FOR_ENGINEERS.md)（命令ではなく共有）  
 **AI／詳細索引:** [`docs/HANDOFF.md`](./docs/HANDOFF.md)  
+**再レビュー（採点軸）:** [`docs/REVIEW_BRIEF.md`](./docs/REVIEW_BRIEF.md) ← リポを読ませてレビューするときはこれ  
 口調: エンジニアへの作業押しはしない。協議・尊重前提。
 
 ## 役割（最重要）
@@ -58,6 +59,7 @@
 | やりたいこと | 見るもの |
 |--------------|----------|
 | 全体理解 | [`docs/FOR_ENGINEERS.md`](./docs/FOR_ENGINEERS.md) ・ [`docs/NEW_DB.md`](./docs/NEW_DB.md) ・ [`docs/DELIVERY_MODEL.md`](./docs/DELIVERY_MODEL.md) |
+| **再レビュー／静的評価** | [`docs/REVIEW_BRIEF.md`](./docs/REVIEW_BRIEF.md)（出力は表 A／B のみ） |
 | API 手続き | [`spike/docs/API.md`](./spike/docs/API.md) |
 | 読み取り形の整理 | [`docs/API_CATALOG.md`](./docs/API_CATALOG.md) ・ [`docs/API_CONTRACT.md`](./docs/API_CONTRACT.md) |
 | 移行の受け渡し | [`docs/MIGRATION_INTAKE.md`](./docs/MIGRATION_INTAKE.md) |

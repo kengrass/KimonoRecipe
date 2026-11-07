@@ -22,7 +22,8 @@
 「不完全／公開不可」は、提供物の欠陥というより、**本番化がまだこれから**という意味で同意します。  
 スタート地点は「形は渡した。置き場と本番実装を一緒に決めて進める」です。
 
-詳細な役割: [`DELIVERY_MODEL.md`](./DELIVERY_MODEL.md)
+詳細な役割: [`DELIVERY_MODEL.md`](./DELIVERY_MODEL.md)  
+リポを AI に読ませて再レビューするときの採点軸: [`REVIEW_BRIEF.md`](./REVIEW_BRIEF.md)
 
 ---
 
